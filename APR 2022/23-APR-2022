@@ -1,0 +1,107 @@
+DTD stands for document type definition document. DTD is used for defining the structure of an xml or used for defining the definition/validity of an xml document.
+DTDs are governed and owned by w3c organization. DTDs are not Xml Type documents, but those are used for defining the structure of an xml.
+	
+DTDs holds declaration of the elements which we wanted to be part of an xml. An xml document holds the data within the elements based on the structure defined by the DTD
+
+In an xml there are 2 types of elements are there
+1. simple element = if an element contains directly the data inside it then it is called "simple" element
+2. compound element = if an element contains child elements inside it then it is called "compound" element
+
+while declaring the elements of an xml in a dtd we need to tell along with element name what type of element it is
+So there are 2 types of element declarations are there in dtd.
+	
+#1 declaring simple element	
+<!ELEMENT ELEMENT_NM CONTENT_TYPE>
+There are 2 content types are supported by dtd
+1. CDATA = character data, everything is treated as a character data 
+2. PCDATA = parseable character data, when we declare an element content type as PCDATA means we are telling parser to parse the parseable character
+
+parseable characters = there are few characters which are called parseable characters [< > & " '], the parser upon reading these characters will interpret them specially rather than symbol
+For an element only PCDATA is applicable we cannot declare CDATA
+<!ELEMENT item-code #PCATA>
+
+#2. declaring compound element
+<!ELEMENT ELEMENT_NM (CHILD1, CHILD2)>
+
+<!ELEMENT item-code #PCDATA>
+<!ELEMENT quantity #PCDATA>
+<!ELEMENT item (item-code, quantity)>
+
+few points to memorize:
+1. xml is case-sensitive, so the case in which we delcared an element in DTD, in the same case it must appear in the xml
+2. the order in which we declared the child element, with the same order the must appear in the xml for that compound element
+
+<?xml version="1.0" encoding="utf-8"?>
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>ic973</item-code>
+			<quantity>20</quantity>
+		</item>
+	</order-items>
+	<shipping-address>
+		<address-line1>Goerge St, 2nd lane</address-line1>
+		<address-line2>hno: 983</address-line2>
+		<city>delaware</city>
+		<state>ohio</state>
+		<zip>98339</zip>
+		<country>India</country>
+	</shipping-address>
+</purchase-order>
+
+<?xml version="1.0" encoding="utf-8"?>
+<!ELEMENT purchase-order (order-items, shipping-address)>
+<!ELEMENT order-items (item+)>
+<!ELEMENT item (item-code, quantity)>
+<!ELEMENT item-code #PCDATA>
+<!ELEMENT quantity #PCDATA>
+<!ELEMENT shipping-address (address-line1, address-line2, city, state, zip, country)>
+<!ELEMENT address-line1 #PCDATA>
+<!ELEMENT address-line2 #PCDATA>
+<!ELEMENT city #PCDATA>
+<!ELEMENT state #PCDATA>
+<!ELEMENT zip #PCDATA>
+<!ELEMENT country #PCDATA>
+
+occurences of an element inside another element:
+How many times a child element can repeat inside a parent element is indicated by occurence of an element inside another element. it is indicated by using 3 symbols
++ = 1 - n
+* = 0 - n
+? = 0/1
+n/s = 1/1
+we declare these symbols besise the child elements while declaring the compound element
+
+<!ELEMENT b #PCDATA>
+<!ELEMENT a (b)>
+------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+																																											 
+																																											 
+																																											 
+																																											 
+																																											 
+																																											 
+																																											 
+																																											 
+																																											 
+
+																																											 
+																																											 
+																																											 
+																																											 

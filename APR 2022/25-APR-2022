@@ -1,0 +1,178 @@
+How to validate an xml against the DTD document?
+po.dtd
+-------
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT purchase-order (order-items, shipping-address)>
+<!ELEMENT order-items (item+)>
+<!ELEMENT item (item-code, quantity)>
+<!ELEMENT item-code (#PCDATA)>
+<!ELEMENT quantity (#PCDATA)>
+<!ELEMENT shipping-address (address-line1, address-line2, city, state, zip, country)>
+<!ELEMENT address-line1 (#PCDATA)>
+<!ELEMENT address-line2 (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT zip (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+
+
+<!DOCTYPE rootElement SYSTEM/PUBLIC "location">
+
+po.xml
+-------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE purchase-order SYSTEM "d:/po.dtd">
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>ic0383</item-code>
+			<quantity>10</quantity>
+		</item>
+	</order-items>
+	<shipping-address>
+		<address-lin1>George St, 2nd lane</address-lin1>
+		<address-line2>202</address-line2>
+		<city>Delaware</city>
+		<state>Ohio</state>
+		<zip>9383</zip>
+		<country>USA</country>
+	</shipping-address>
+</purchase-order>
+----------------------------------------------------------------------------------------
+We can write the data within an xml at 2 places
+1. elements
+2. attributes
+
+<shipping-address type="permanent">
+	<address-lin1>George St, 2nd lane</address-lin1>
+	<address-line2>202</address-line2>
+	<city>Delaware</city>
+	<state>Ohio</state>
+	<zip>9383</zip>
+	<country>USA</country>
+</shipping-address>
+
+attributes are used for attaching supplementary information to the elements of an xml. 
+	1. there is no occurence of an attribute
+	2. the data that is written inside the attribute should be short in nature and should span a single word then only we declare it as an attribute, otherwise recommended to declare as an element
+	3. all the data stored inside an attribute is of cdata type only
+	
+How to declare attribute for an element of an xml in dtd?
+syntax:-	
+<!ATTLIST ELEMENT_NM ATTRIBUTE_NM CONTENT_TYPE>
+
+<!ELEMENT shipping-address (address-line1, address-line2, city, state, zip, country)>
+<!ATTLIST shipping-address type CDATA "permanent">
+----------------------------------------------------------------------------------------
+xsd (xml schema document)
+-------------------------
+xsd stands for xml schema document, xsd is another language provided by w3c org to define the validity criteria of an xml or to define the structure of an xml. The initial version of xsd is 1.0 and the current version of xsd is 1.1. xsds are also xml type document only, which is used for defining another xml
+
+xsd is an xml, but it is an special type of xml, which has pre-defined set of elements and fixed structure is there
+
+we declare elements in xsd and we use/ref those elements in xml, first we need to delcare elements in xsd, then we can use them inside xml
+
+There are 2 types of elements are there in an xml
+1. simple element = data directly
+2. compound element = child elements
+
+So we need to declare 2 types of elements in an xml 
+#1. simple element declaration
+
+syntax:-
+<xs:element name="elementname" type="dataType"/>
+unlike DTD the xsd language has defined lot of built-in datatypes
+1. string
+2. int
+3. float
+4. date
+5. boolean
+etc
+
+<xs:element name="item-code" type="xs:string"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

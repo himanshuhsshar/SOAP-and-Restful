@@ -1,0 +1,174 @@
+
+#1. every xml must and should start with a starting line called prolog. prolog stands for processing instruction, it provides processing instruction to the parsers helping them in understanding how to parse the xml document
+<?xml version="1.0" encoding="utf-8"?>
+
+#2. every xml should have one and only one root element, all the other elements must appear within the root element only. since xml represents the data in hierarchial manager all the hierarchial structures starts with only one root element
+
+#3. all the data must be written inside the tags. there are 2 types of tags are there, 1 is opening tag and another one is closing tag
+For each opening tag there must be one closing tag. The name of the opening tag should match with the name of the closing tag and the level at which we wrote the opening tag at the same level we need to close the ending tag
+
+if we follow all these rules in writing the xml, then the xml is said to be well-formed xml document. 
+if an xml is said to be well-formed means it has been properly written and everyone can read the data from it.
+
+well-formness of an xml doesnt talks about the information written inside the xml is valid or not, it only tells us whether anyone can read the data from it or not.
+	
+How do we say the information written inside the xml is valid or invalid?	
+The validity of an xml is defined by the people or applications who are using the data and differs from application to application or people to people who are using it
+
+For every xml there are 2 types of checks are there
+1. wellform-ness (mandatory) = readability of the data
+2. validity (depends) = information provided is valid for usage or not
+------------------------------------------------------------------------------------------
+How to define the validity of an xml?
+To define the validity of an xml we need standard language that is where dtd and xsd are introduced.
+dtd stands for document type definition document.
+xsd stands for xml schema document
+These are used for defining the definition of an xml or structure of an xml or validity crtiertia of an xml.
+	
+People has to follow the definition written as part of dtd/xsd in writing the xml there by the receiver of the information will be able to validate and use that data.
+	
+purchase-order.xml
+--------------------
+<?xml version="1.0" encoding="utf-8"?>
+<purchase-order>
+	<order-items>
+		<item>
+			<item-no>ic028</item-no>
+			<quantity>12</quantity>
+		</item>
+		<item>
+			<item-no>ic038</item-no>
+			<quantity>29</quantity>
+		</item>
+	</order-items>
+	<shipping-address>
+		<address-line1>ferry street</address-line1>
+		<address-line2>near hanuman temple</address-line2>
+		<city>hyderabad</city>
+		<state>ts</state>
+		<zip>9383</zip>
+		<country>India</country>
+	</shipping-address>
+</purchase-order>
+------------------------------------------------------------------------------------------There are 2 ways we can define validity of an xml
+1. dtd = document type definition document (old technic)
+2. xsd = xml schema document (modern)
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

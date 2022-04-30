@@ -1,0 +1,73 @@
+What are the challenges involved in building an partner systems, who are going to offer services onbehalf of the business owner?
+	
+#1 database/other resources internal to the organization of the business owner
+sharing these database or other internal resources to the external business partners runs into severe security breach lik
+	1.1 partners can steal/mis-use the resources
+	1.2 may tamper or alter the systems
+which might cause severe loss of business
+
+#2. From the point of building the business system
+	2.1 partners, building an big/complex business system in-offering business services on behalf of the owner seems to be in-feasible and non-profitable solution, as it involves lot of time and cost in building such a huge system
+	2.2 always business rules are going to be changed, whenever there is a change it must be adopted by all the partners along with owner. making sure these changes are implemented by all the partners is hard/difficult
+	2.3 There is no guarantee the partners are offering the business services based on the rules defined by the owner. The owner has to continously monitor and validate the partner systems 
+	2.4 in order to enable the partners to build their solutions based on the rules, the owner has to reveal the entire process of conducting the business, which might be harmful to the owner itself.
+-----------------------------------------------------------------------------------------
+The soap webservices/restful services are not the technologies used for building web applications. A soap webservice/restful service is not meant for exchanging web data/html markup as, rather they take the business data as an input perform the operation and returns bussiness data as an output
+
+So there are not mean for building web applications, these are meant for building b2b solutions. These components we build are being used by the partnered applications to integrate their systems/components with our business system to offer our services to their customers.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

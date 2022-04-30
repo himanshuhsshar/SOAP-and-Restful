@@ -1,0 +1,86 @@
+What is soap webservices/restful services?
+soap webservices or restful services are used for building interoperable distributed technology based application
+
+soap webservices/restful services are not meant for building web applications, they dont exchange html markup, rather thoese are used for building b2b applications
+------------------------------------------------------------------------------------------
+To understand soap webservices, xml technologies is mandatory.
+xml stands for eXtensible markup language it is derived from sgml language (standard graph markup language). so, xml is one of markup language out of many. anything that is build out of tags (<tag></tag>) is called "markup". since we write xml using tags we call it as markup language.
+	
+xml is not a programming language, rather xml is used for storing the data or representing data. xml is governed and owned by w3c organization. The initial version of xml is 1.0 and even the current version of the xml is 1.0
+	
+xml stores the data in structured format and it attaches semantics to the data, so that everyone can understand the data and derive the meaning of the data easily. There is zero chance of mis-interpreting the data when we represent the data in xml format.
+	
+xml is an text based/characted based data representation standard, where group of characters are written based on some rules in representing the data, thus making it interoperable
+
+xml is the de-facto standard that should be used for exchanging the data across the computer programs running over the network.
+------------------------------------------------------------------------------------------
+xml is an language, every language defined keywords as part of it.
+keywords are the reservered words of the language attached with predefined meaning towards them. so keywords are the basic building blocks of any language or grammer of a language.
+	
+xml is the only language which doesnt have any keywords or reserved words defined as part of the language. we can define our own tags in represeting the data there are no predefined tags/reservered words as part of the language.
+	
+xml language defines syntax rules, that has to be followed while working with that language. similary xml is also a language, there are syntatic rules that are defined by the language that we need to follow while writing the data in xml format
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

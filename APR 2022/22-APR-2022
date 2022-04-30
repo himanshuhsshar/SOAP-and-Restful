@@ -1,0 +1,183 @@
+There are 2 types of checks are there for an xml
+1. well-formness = talks about the readability of the data. if an xml is said to be well-formed means anyone can read and understand the data written inside the xml
+
+2. validity = validity of an xml talks about the correctness of information written as part of the xml.
+The validity of an xml differs from xml document to another, and it is defined by the people who are using the data from the xml and depends on what do they do with that data.
+	
+How does the people define the validity of an xml or structure of the xml?
+DTD or XSD are the standard languages provided for defining the validity of an xml document.
+------------------------------------------------------------------------------------------
+DTD
+DTD stands for document type definition document, DTDs are not xml type document rather it is another language used for defining the structure of an xml document. DTDs are introduced by w3c org. 
+	
+<?xml version="1.0" encoding="utf-8"?>
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>ic03</item-code>
+			<quantity>35</quantity>
+		</item>
+		<item>
+			<item-code>ic083</item-code>
+			<quantity>23</quantity>
+		</item>
+	</order-items>
+	<shipping-address>
+		<address-line1>tom street</address-line1>
+		<address-line2>12-93/1</address-line2>
+		<city>hyderabad</city>
+		<state>ts</state>
+		<zip>03883</zip>
+		<country>India</country>
+	</shipping-address>
+</purchase-order>
+	
+In an xml there are 2 types of elements are there
+1. simple element = if an element contains data inside it directly then it is called "simple element"
+2. compound element = within an element if it contains child element inside it then it is called compound element
+
+before using the elements within the xml, first we need to declare those elements in an dtd document. while declaring the elements in an dtd along with name we need to specify what type of element it is.
+	
+From the above we can understand there are 2 types of elements are there in an xml. So we need to declare 2 types of elements in an DTD
+
+How to declare an simple element of an xml in a DTD document?
+syntax:-
+	
+<!ELEMENT ELEMENT_NM CONTENT_TYPE>
+There are 2 types of CONTENT_TYPEs are there
+1. CDATA = Character Data
+2. PCDATA = Parseable Character data
+For an element we cannot use CDATA only PCDATA is applicable for an element
+
+PCDATA stands for parseable character data. There are few special symbols in xml based on which the parsers will identify the tags from data, which are < > ' & "
+
+when we declare an element of type PCDATA means we are telling to the parser to parse these characters to identify the boundaries of the elements.
+CDATA = dont parse the parseable characters, treat everything as character data only
+
+How to declare compound elements of our xml within the dtd document?
+A compound element contains child elements inside it. So while declaring an compound element we need to specify what are the child elements contained inside the compound element as below.
+syntax:-
+<!ELEMENT CHILD1 #PCDATA>
+<!ELEMENT CHILD1 #PCDATA>
+<!ELEMENT ELEMENT_NAME (CHILD1, CHILD2)>
+
+<!ELEMENT item-code #PCDATA>
+<!ELEMENT quantity #PCDATA>
+<!ELEMENT item (item-code, quantity)>
+
+<item>
+	<item-code>ic0383</item-code>
+	<quantity>29</quantity>	
+</item>
+
+few rules to remember:-
+	1. xml is case-sensitive, which means it treats capital and small letters differently
+	2. the child elements declared inside the compound element must appear in the same of declaration in xml as well, here "," is sequence separator indicating all child should be appear in same sequence order
+	
+	
+po.dtd
+-------
+<?xml version="1.0" encoding="utf-8"?>
+
+<!ELEMENT item-code #PCDATA>
+<!ELEMENT quantity #PCDATA>
+<!ELEMENT address-line1 #PCDATA>
+<!ELEMENT address-line2 #PCDATA>
+<!ELEMENT city #PCDATA>
+<!ELEMENT state #PCDATA>
+<!ELEMENT zip #PCDATA>
+<!ELEMENT country #PCDATA>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

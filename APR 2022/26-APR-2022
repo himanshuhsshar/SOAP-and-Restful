@@ -1,0 +1,138 @@
+xsd
+----
+xsd stands for xml schema document, xsds are used for defining the structure of an xml or defining the validity criteria of an xml document. xsd are governed and owned by w3c org. The initial version of xsd is 1.0 and current version: 1.1
+xsds are also xml type documents but those are special type of xmls. these has predefined set of elements and fixed structure we need to follow in writing an xml to be called as "xsd".
+	
+all the elements we want to write as part of an xml should be declared in an xsd document first, so that those can appear as part of xml
+In an xml there are 2 types of elements are there 
+1. simple element   = data directly
+2. compound element = has child elements inside them
+
+So we need to declare both these type of elements in xsd to have them aspart of the xml.
+	
+How to declare simple element of an xml in an xsd document?
+syntax:-
+<xs:element name="elementname" type="dataType"/>
+in dtd we have only 2 data/content types are there, unlike dtd in an xsd there are lot of in-built datatypes are provided as part of the language
+1. int
+2. float
+3. string
+4. date
+5. boolean
+6. datetime
+etc
+while declaring an simple element we need precisely tell what type of data we want to store/represent as part of the element
+for eg..
+<xs:element name="item-code" type="xs:string"/>
+the above declaration states in the xml we need to write an element with name "item-code" which contains data of type "string".
+	
+How to write an xsd document?
+
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:element name="item-code" type="xs:string"/>
+	<xs:element name="quantity" type="xs:int"/>
+	
+	<xs:element name="address-line1" type="xs:string"/>
+	<xs:element name="address-line2" type="xs:string"/>
+	<xs:element name="city" type="xs:string"/>
+	<xs:element name="state" type="xs:string"/>
+	<xs:element name="zip" type="xs:int"/>
+	<xs:element name="country" type="xs:string"/>
+</xs:schema>
+
+How to declare compound elements of an xml in an xsd document?
+
+int i = 10;
+String m="good morning!";
+
+based on the nature of the data we want to store in a variable we need to choose an appropriate datatype while declaring variable
+
+when we dont have in-built datatypes supporting the nature of the data we wanted to store in a variable,then we need to create our own user-defined data types representing structure of the data we want to store
+
+in java we can create our own user-defined data types using class declaration.
+
+class Student {
+	int rollNo;
+	String studentName;
+	String standard;
+	String section;
+	String medium;	
+}
+Here Student is not an variable/object rather it is a dataType representing the skeleton representation/structure of the data we wanted to store in an Object of the class
+	
+Student s = new Student();
+s becomes the variable of the class Student dataType. Inside the s variable we can store the data based on attributes defined as part of the class
+------------------------------------------------------------------------------------------
+
+<item-code>ic083</item-code>
+<xs:element name="item-code" type="xs:string"/>	
+
+<item>
+	<item-code>ic939</item-code>
+	<quantity>93</quantity>
+</item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

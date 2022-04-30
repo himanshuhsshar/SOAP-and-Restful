@@ -1,0 +1,88 @@
+Xml stands eXtensible markup language. xml is not an programming language, rather xml is used for storing the data or representing the data. xml is governed and owned by w3c organization and initial and the current version of the xml is 1.0
+	
+xml allows us to store the data in structured format and attaches semantics to the data. if the data is structured and semantics are attached to the data, there is zero chance that someone might mis-interpret the data.
+everyone who sees the data will interpret the data in the same format of representation.
+	
+xml is an character based data representation standard, due to which it is highly interoperable.
+xml has been made as an defacto standard in exchanging the data between any 2 programs that are communicating over the network
+
+xml is the only language that doesnt have any keywords or reservered words defined as part of it. we can represent the data as part of the xml by defining our own tags. There are syntactic rules that we need to follow while writing the data aspart of the xml document.
+
+What are the rules we need to follow while writing the data aspart of the xml?
+#1. every xml must and should start with an starting line called "prolog". prolog stands for processing instruction. it provides processing instruction to the parser who are parsing the data from the xml
+	
+<?xml version="1.0" encoding="utf-8"?>
+<address>
+	<address-line1>mallick dr, 27 route</address-line1>
+	<address-line2>clock tower</address-line2>
+	<city>denwar</city>
+	<state>ohio</state>
+	<zip>93844</zip>
+	<country>USA</country>
+</address>
+
+#2. we can representing any amount of data as part of the xml by keeping it aspart of the tags. all the tags we are writing must and should be under one single tag which is called "root element" of an xml
+There cannot be more than one root element for an xml since xml stores the data in an hierarchial representation model. Hierarchial representation means something that is represented interms of parent/child relationship. always hierarchial representations starts with only one root node.
+	
+Why does xml represents the data in Hierarchial representation format?
+So that by nesting one element inside another element we can form group of related data and represent relationship between them
+
+<person>
+	<person-no>1</person-no>
+	<full-name>adam</full-name>
+	<age>22</age>
+	<gender>male</age>
+	<address>
+		<address-line1>mallick dr, 27 route</address-line1>
+		<address-line2>clock tower</address-line2>
+		<city>denwar</city>
+		<state>ohio</state>
+		<zip>93844</zip>
+		<country>USA</country>
+	</address>
+</person>
+
+all the other elements we write inside the root element are called child elements of the root.
+	
+#3.
+all the data should be written inside the element. 
+For each starting tag there must be an ending tag. The name of the starting tag must and should be matched with the name of the ending tag
+The level at which we started the starting tag, at the same level we need to write the endoing/closing tag
+
+all of these rules has to be followed in writing an xml, then the xml is said to be well-formed. if an xml is said to be well-formed means everyone can read the xml and understand the data represented as part of it.
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
