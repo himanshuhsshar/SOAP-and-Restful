@@ -1,0 +1,74 @@
+Why soap services/restful services are introduced, when we have ejb technology in place to build distributed components/solutions?
+Using Ejb technology we can build distributed applications/components, but these components are accessible only to the other applications that are build-in java language only.
+In order to make our distributed component accessible across the network irrespective of technology and platform of the other application, we need to use soap/restful services technology
+
+Soap Web Services / Restful Services is a technology used for building distributed components which are even interoperable as well. So we build inter-operable distributed solutions using soap/restful service technologies.
+------------------------------------------------------------------------------------------
+1. What is distributed technology? What is the purpose of it?
+2. What are the factors influence us in building distributed technology based applications?
+3. How does the applications looks like when we build them using distributed technology, what is the nature of them?
+4. Evolution of distributed technology?
+5. What is the support of programming languages toward distributed technology?
+6. What is the support of java programming language in working on distributed technology?
+------------------------------------------------------------------------------------------
+usecase demonstrating the distributed technology application
+------------------------------------------------------------
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

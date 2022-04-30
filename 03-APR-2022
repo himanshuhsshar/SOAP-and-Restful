@@ -1,0 +1,47 @@
+What is distributed technology?
+distributed technology is a methodology using which we break down the components of a software system into multiple parts, distribute it across the machines and execute them in parallel. These components work together in building an common solution and coordinate, communicate with each other over the network is called a "distributed solution".
+	
+distributed technology is all about distributing a job to more than one person by breaking down into equal independent parts, where all the people will work in parallel in computing the common solution with mutual coordination between them, so that the overall turn-around time in computing the solution will comes down greatly is called "distributed technology"
+-----------------------------------------------------------------------------------------
+	
+What are factors that influence us in building an application based on distributed technology?
+1. quicker turn-around time in computing the solution 
+2. higher throughput, means number of jobs being completed within the given interval of time 
+3. high responsive systems 
+4. machine critical, high precision and high accurate systems then use distributed technology 
+5. high availability of resources 
+6. high utilization of resources 
+------------------------------------------------------------------------------------------
+What type of applications are we going to build using distributed technology?
+We build software application, where the components of the system are distributed across the computers and communicate with each other over the network.
+	
+To enable these programs to communicate over the network, the programmer has to write network programming logic, so we are developing network aware applications.
+------------------------------------------------------------------------------------------
+How does the distributing programming came into picture?
+by the increasing demands of the business the innovation of distributed technology happened.
+
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,99 @@
+RMI
+-----
+RMI stands for remote method invocation,it an api provided by sun microsystems in support of building distributed technology applications as part of java language
+advantages:-
+	1. unlike corba api, the development of the distributed application using RMI matches with traditional java application development, developer find quite easy in developing applications using RMI api
+	2. No need of multiple compilation stages during development
+	3. package the rmi application by using standard packaging which is "jar"
+	4. No commercials containers, no need install, administer or monitor. so developing the solutions in RMI is quite easy and zero cost in maintainance
+	
+EJB
+----
+EJB stands for enterprise java beans, it an api provided by sun microsystems in building distributed technology applications in java language. With the innovation of ejb the concept of managed servers and managed components are introduced into the market. While the application running, it requires some external resources as an input to carry the operation.
+In a traditional/typical application development the developer by himself has to manage in hosting/acquiring these resources to perform the operation. whereas incase of ejb/jee technology the underlying server takes care managing the external resources that are required as an input for the application components and make the available for usage, so lot of plumbing logic in hosting/managing these resources is eliminated with ejb/jee technology
+
+There are 3 types of EJB are there
+1. Session bean = used for distributing/exposing business logic of an application
+2. Entity bean  = bulding persistence logic as an distributed component (deprecated/removed from EJB 3.0) and replaced with jpa api
+3. Message-driven bean = Used for building Asynchronous/Messaged oriented application components (JMS Technology)
+	
+The biggest limitation with RMI is it is not meant for building enterprise class-level distributed solutions, so to help us in building enterprise class-level distributed applications Sun Microsystems has introduced Ejb technology
+
+There are lot of common requirements that has to be fulfilled while building an enterprise application like
+1. security
+2. transactionality
+3. concurrency
+4. memory management
+5. high availability
+6. performance optimization (cache)
+7. resource management
+
+while working with RMI the developer by himself has to code in implementing these features as part of the solution which seems to be very complex and time consuming task. since these are common features that has to be available for any enterprise-class distributed component these has to be taken care by the underlying platform/runtime itself
+which are called cross-platform services, irrespective of application we are bulding we need these common services, so let it be taken care by platform/server/runtime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

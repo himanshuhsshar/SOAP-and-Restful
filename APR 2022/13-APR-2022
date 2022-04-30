@@ -1,0 +1,87 @@
+analysis/reasoning in choosing distributed technology and even interoperability
+--------------------------------------------------------------------------------
+	
+databases/source systems:
+#1 There should not be multiple sources of input for a data, always all the data should go into one source only.
+If the data has been broken down and stored across various different source systems we run into several problems:-
+	1. it becomes quite complex to build an business system that queries/access the data from multiple sources of input and aggregates the data to process
+	2. always we run into data inconsistency in managing the data as it has been stored across multiple source systems
+	
+all the information related to the business should be stored with the business owner database only
+if the internal resources (database) are exposed to the external business partners we run into several issues:
+1. security breach, the partners might steal the data, or mis-use the data or modify the data in such a way it cause a big business loss to the owner, so never expose internal resources of the organization to the external partners
+If in case if we expose the database still we have problems:
+2. complexity in understanding the schema model of the owner is very high for the business partners
+3. a change in underlying schema will effect all the partnered appliations
+
+In-short:- dont expose the internal resources like databases to the external business partners.
+-----------------------------------------------------------------------------------------
+There can be lot of complex business rules that are defined by the owner of the business in building the business system. The complex business rules in conducting the business will be defined by the owner and should be adopted across the partners. So to adopt and build such a complex business system by the partners has lot of challenges
+1. To build such a complex business system inccurs huge amount of cost, since the partner works in association with the owner, it becomes non-profitable for the partner in investing such a huge amount in building the system where it leads to severe losses to the partner
+
+2. The changing business rules are tough to be adopted by all the partners and owner shoudl make sure all of the partners are implementing these changes
+
+3. There is no guarantee that all the partners has build their solutions based on the rules defined by the owner. So, its the responsibility of owner to ensure the partner applications are complaint with their business rules/process which is quite hard
+
+4. The business owner has to reveal the information/process or rules over which the business is conducted to the partners which might harm/effect the owner itself
+
+It looks like while building partnered solutions in offering business services onbehalf of the owner there are lot of hurdles or challenges are there
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

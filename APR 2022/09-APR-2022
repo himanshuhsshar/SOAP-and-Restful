@@ -1,0 +1,50 @@
+EJB
+----
+Ejb stands for enterprise java beans, it is an api provided for building enterpriese distributed applications
+
+There are 3 types of Ejb are there
+1. Session Bean = distributing business logic over the network
+2. Entity Bean = to expose persistence logic over the network
+3. Message-Driven Bean = To build distributed components, that can communicate by exchanging messages between them. asynchronous communication support
+
+RMI doesnt support building enterprise class-level distributed components, all the cross-platform services like security, memory management, high-availability, transactionlity, concurrency, resource maangement has to be taken care by the developer by writing the code.
+	
+To overcome the dis-advantage with RMI the sun microsystems has introduced EJB technology that takes care of cross-platform services required in building enterprise class level distributed applications
+------------------------------------------------------------------------------------------
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

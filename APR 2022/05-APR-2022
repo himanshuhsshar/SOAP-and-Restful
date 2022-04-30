@@ -1,0 +1,97 @@
+What do you mean by distributed technology based applications?
+Instead of running multiple components of the program on the same machine we distribute the software application across multiple computers and run them in parallel to compute the solution quickly. Since these 2 programs are building common solution, they need to coordinate and communicate with each other over the network, so we are building network aware applications or networking programming.
+
+The notation of distributed technology has began from the business houses or organizations.
+------------------------------------------------------------------------------------------
+Distributed technology is not a api or programming language rather it is an methodology, that has been innovated by the group of experts in the software engineering world. These people has comeup with set of rules and guidelines in developing software applications	
+	
+By adopting the rules and guideliness provided by these experts developers has to build their software applications, so that those can be called as distributed technology applications.
+	
+But it looks like it is quite difficult for the developers in building the software applications based on the rules/guidelines provided by this methodology, more over it is a common requirement that most of the people wanted to build their solutions based on distributed technology.
+	
+So it is the responsibility of programming languages in provided api to support building distributed applications as part of their language
+
+Support of java language in building distributed technology based applications
+----------------------------------------------------------------------------------
+The Sun Microsystems as part of the java programming language has provided multiple apis in building distributed technology applications
+1. corba
+2. rmi
+3. ejb
+4. soap webservices
+5. restful services
+
+Let us understand why these many number of apis are there and how are they different from each other.
+	
+#1. corba
+corba stands for "common object request broker architecture". corba supports building distributed applications not only java, even it supports other languages as well.
+While working with corba the developer will not directly start with writing the java code rather we need to define the structure/skeleton representation of the program in a language/file called IDL
+
+IDL stands for interface definition language which is independent of any programming language.
+pass the idl script we wrote to corba compiler
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
