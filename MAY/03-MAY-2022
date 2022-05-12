@@ -1,0 +1,120 @@
+working with element references
+--------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<book>
+	<isbn>ix0383</isbn>
+	<title>java complete reference</title>
+	<author>
+		<author-name>Alexander</author-name>
+		<dob>1980-1-23</dob>
+		<gender>male</gender>
+		<no-of-books>4</no-of-books>
+	</author>
+	<publisher>
+		<publisher-name>Wrox</publisher-name>
+		<est-date>1967-03-11</est-date>
+		<no-of-books>300</no-of-books>
+	</publisher>
+</book>
+
+book.xsd
+--------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema>
+	<xs:element name="book" type="bookType"/>
+	<xs:element name="no-of-books" type="xs:int"/>
+	
+	<xs:complexType name="bookType">
+		<xs:sequence>
+			<xs:element name="isbn" type="xs:string"/>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="author" type="authorType"/>	
+			<xs:element name="publisher" type="publisherType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="authorType">
+		<xs:sequence>
+			<xs:element name="author-name" type="xs:string"/>
+			<xs:element name="dob" type="xs:date"/>
+			<xs:element name="gender" type="xs:string"/>
+			<xs:element ref="no-of-books"/>	
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="publisherType">
+		<xs:sequence>
+			<xs:element name="publisher-name" type="xs:string"/>
+			<xs:element name="est-date" type="xs:date"/>
+			<xs:element ref="no-of-books"/>	
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+working with groups
+--------------------
+<?xml version="1.0" encoding="utf-8"?>
+<classifieds>
+	<flat>
+		<type>2bhk</type>
+		<facing/>
+		<square-feet/>
+		<rent-amount/>
+		<floor/>		
+	</flat>
+	<independent-house>
+		<type></type>
+		<facing/>
+		<rent-amount/>
+		<no-of-floors/>
+		<sq-yards/>		
+	</independent-house>
+</classifieds>
+
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema>
+	<xs:element name="classifieds" type="classifiedsType"/>
+	
+	<xs:group name="propertyElemsGroup">
+		<xs:sequence>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="facing" type="xs:string"/>
+			<xs:element name="rent-amount" type="xs:float"/>
+		</xs:sequence>
+	</xs:group>
+	
+			
+	<xs:complexType name="classifiedsType">
+		<xs:sequence>
+			<xs:element name="flat" type="flatType" minOccurs="1" maxOccurs="unbounded"/>		
+			<xs:element name="independent-house" type="independentHouseType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+	
+	<xs:complexType name="flatType">
+		<xs:sequence>
+			<xs:group ref="propertyElemsGroup"/>
+			<xs:element name="square-feet" type="xs:int"/>
+			<xs:element name="floot" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="independentHouseType">
+		<xs:sequence>
+			<xs:group ref="propertyElemsGroup"/>
+			<xs:element name="no-of-floors" type="xs:int"/>
+			<xs:element name="sq-yards" type="xs:int"/>	
+		</xs:sequence>
+	</xs:complexType>	
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+

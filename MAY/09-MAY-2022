@@ -1,0 +1,172 @@
+include vs import
+------------------
+include:
+if we are breaking down the xsd into multiple xsds for encouraging modularity then all the xsds will have same targetNamespace, so to reuse one xsd inside another xsd we use include
+
+import:
+if we are reusing the another xsd provided by an external vendor in creating our xsd, then both the xsd namespaces will be different namespace, then to we need to use import for reusing another xsd within our xsd
+
+include example:
+-----------------
+po1.xsd
+--------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://amazon.com/products/sales" xmlns:aps="http://amazon.com/products/sales">
+	<xs:element name="shipping-address" type="aps:shippingAddressType"/>
+	<xs:complexType name="shippingAddressType">
+		<xs:sequence>
+			<xs:element name="address-line1" type="xs:string"/>
+			<xs:element name="address-line2" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="xs:int"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+po2.xsd
+--------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://amazon.com/products/sales" xmlns:as="http://amazon.com/products/sales">
+	<xs:include location="po1.xsd"/>
+	
+	<xs:element name="purchase-order" type="as:purchaseOrderType"/>
+	
+	<xs:complexType name="purchaseOrderType">
+		<xs:sequence>
+			<xs:element name="order-items" type="as:orderItemsType"/>		
+			<xs:element ref="as:shipping-address"/>
+		</xs:sequence>		
+	</xs:complexType>
+	
+	<xs:complexType name="orderItemsType">
+		<xs:sequence>
+			<xs:element name="item" type="as:itemType" minOccurs="1" maxOccurs="unbounded"/> 		
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="item-code" type="xs:string"/>
+			<xs:element name="quantity" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+
+po.xml
+-------
+<?xml version="1.0" encoding="utf-8"?>
+<aps:purchase-order xsi:schemaLocation="http://amazon.com/products/sales file:///d:/po2.xsd" xmlns:aps="http://amazon.com/products/sales">
+	<order-items>
+		<item>
+			<item-code>ic0833</item-code>
+			<quantity>38</quantity>
+		</item>
+	</order-items>
+	<aps:shipping-address>
+		<address-line1/>
+		<address-line2/>	
+		<city/>
+		<state/>
+		<zip/>
+		<country/>
+	</aps:shipping-address>
+</aps:purchase-order>
+--------------------------------------------------------------------------------------------
+working with import
+--------------------
+bluedart-address.xsd
+----------------------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://bluedart.com/courier/address" xmlns:bca="http://bluedart.com/courier/address">
+	<xs:element name="shipping-address" type="bca:shippingAddressType"/>
+	<xs:complexType name="shippingAddressType">
+		<xs:sequence>
+			<xs:element name="address-line1" type="xs:string"/>
+			<xs:element name="address-line2" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="xs:int"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>	
+
+po.xsd
+--------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://amazon.com/products/sales" xmlns:as="http://amazon.com/products/sales" xmlns:ba="http://bluedart.com/courier/address">
+
+	<xs:import schemaLocation="file:///d:/bluedart-address.xsd" namespace="http://bluedart.com/courier/address"/>
+		
+	<xs:element name="purchase-order" type="as:purchaseOrderType"/>
+	
+	<xs:complexType name="purchaseOrderType">
+		<xs:sequence>
+			<xs:element name="order-items" type="as:orderItemsType"/>		
+			<xs:element ref="ba:shipping-address"/>
+		</xs:sequence>		
+	</xs:complexType>
+	
+	<xs:complexType name="orderItemsType">
+		<xs:sequence>
+			<xs:element name="item" type="as:itemType" minOccurs="1" maxOccurs="unbounded"/> 		
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="item-code" type="xs:string"/>
+			<xs:element name="quantity" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+
+po.xml
+-------
+<?xml version="1.0" encoding="utf-8"?>
+<aps:purchase-order xsi:schemaLocation="http://amazon.com/products/sales file:///d:/po.xsd" xmlns:aps="http://amazon.com/products/sales" xmlns:bca="http://bluedart.com/courier/address">
+	<order-items>
+		<item>
+			<item-code>ic0833</item-code>
+			<quantity>38</quantity>
+		</item>
+	</order-items>
+	<bca:shipping-address>
+		<address-line1/>
+		<address-line2/>	
+		<city/>
+		<state/>
+		<zip/>
+		<country/>
+	</bca:shipping-address>
+</aps:purchase-order>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

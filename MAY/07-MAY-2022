@@ -1,0 +1,106 @@
+How to use elements from an xsd namespace in an xml document?
+account1.xsd
+-------------
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sna="http://www.sbi.com/netbanking/accounts" targetNamespace="http://www.sbi.com/netbanking/accounts" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:element name="account" type="sna:accountType"/>
+	
+	<xs:complexType name="accountType">
+		<xs:sequence>
+			<xs:element name="account-no" type="xs:string"/>
+			<xs:element name="account-holder-nm" type="xs:string"/>
+			<xs:element name="opened-dt" type="xs:date"/>
+			<xs:element name="account-type" type="xs:string"/>
+			<xs:element name="registered-mobile-no" type="xs:string"/>
+			<xs:element name="registered-email-address" type="xs:string"/>
+			<xs:element name="balance" type="xs:float"/>
+			<xs:element name="address" type="sna:addressType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="addressType">
+		<xs:sequence>
+			<xs:element name="address-line1" type="xs:string"/>
+			<xs:element name="address-line2" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="xs:int"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+account2.xsd
+-------------
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sna="http://www.axisbank.com/netbanking/accounts" targetNamespace="http://www.axisbank.com/netbanking/accounts">
+	<xs:element name="account" type="sna:accountType"/>
+	<xs:complexType name="accountType">
+		<xs:sequence>
+			<xs:element name="account-no" type="xs:string"/>
+			<xs:element name="account-holder-nm" type="xs:string"/>
+			<xs:element name="opened-dt" type="xs:date"/>
+			<xs:element name="account-type" type="xs:string"/>
+			<xs:element name="registered-mobile-no" type="xs:string"/>
+			<xs:element name="registered-email-address" type="xs:string"/>
+			<xs:element name="balance" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+d:\work\app1:/>
+package pkg1;
+class A {
+	int m2(int i) {
+		return 10;
+	}
+}
+
+d:\work\app2:/>
+package pkg2;
+class B {
+	void m1() {
+		pkg1.A  a = new pkg1.A(); // identification
+		int i = a.m2(10);
+		sop(i);
+	}
+}
+
+d:\work\app1:/> set classpath=d:\work\app1 // location
+d:\work\app2:/> javac -d . B.java
+
+account.xml
+--------------
+<?xml version="1.0" encoding="utf-8"?>
+<sna:account xsi:schemaLocation="http://www.sbi.com/netbanking/accounts file:///d:/account1.xsd http://www.axisbank.com/netbanking/accounts file:///d:/account2.xsd"
+	xmlns:sna="http://www.sbi.com/netbanking/accounts">	
+	<sna:account-no>ac9933</sna:account-no>
+	<sna:account-holder-name>fedrick</sna:account-holder-name>
+	<sna:opened-dt>2022-01-21</sna:opened-dt>
+	<sna:account-type>savings</sna:account-type>
+	<sna:registered-mobile-no>9989873988</sna:registered-mobile-no>
+	<sna:registered-email-address>fedrick@gmail.com</sna:registered-email-address>
+	<sna:balance>3443</sna:balance>
+	<sna:address>
+		<sna:address-line1>1833, redwoods dr</sna:address-line1>
+		<sna:address-line2>california</sna:address-line2>
+		<sna:city>routers</sna:city>
+		<sna:state>ca</sna:state>
+		<sna:zip>9373</sna:zip>
+		<sna:country>USA</sna:country>
+	</sna:address>
+</sna:account>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

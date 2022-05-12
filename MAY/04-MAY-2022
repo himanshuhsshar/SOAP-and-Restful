@@ -1,0 +1,127 @@
+xsd namespace
+-------------
+xsd namespaces are used for resolving the naming collision that arises between the complexTypes, simpleTypes or elements that are being defined by various different xsd developers 
+namespaces are used for naming compartmentalization
+
+Java language allows developers to create their own user-defined dataTypes by using class declarations, there is a chance where multiple developers while working with java language might endup in defining their own user-defined dataTypes by declaring classes with the same name and landup into naming collision.
+Java language has provided a mechanism to resolve the naming collision that arises between various different classes that are defined by several java developers through the help of packages
+
+packages are used for resolving naming collision that arises between multiple java developers who are creating various different classes.
+	
+similarly if a language supports declaring their own user defined dataTypes there is a chance that people would endup in defining their own dataTypes with same/similar name and landup into naming collsion.
+its the responsibility of the language to provide a mechanism for resolving the naming collision. 
+	
+even xsd language also supports declaring our own user defined dataTypes through complexType, simpleTypes and elements, eventually leads to naming collision across the other complexTYpes, simpleTypes and elements defined by other developers.
+	
+it is the responsibility of xsd language to provide a mechanism to resolve naming collison that causes while working the xsd's that is where xsd namespace has been provided.
+	
+Xsd namespaces are used for resolving the naming collision that arises across the various different user defined dataTypes that are defined by various different developers	
+-------------------------------------------------------------------------------------------	
+How to work with xsd namespaces?
+Let us closely compare with java packages to understand how to work with xsd namespaces.
+	
+There are 2 parts are there while working with packages in java
+1. while creating/declaring a class it is recommended to create a class under a package
+2. while using a class we need to refer a class from the package
+	
+#1. While declaring or creating a class,we need to bind the class to a package
+whenever we are creating a class, we need to declare packageName at the top of the class as package packageName, so that the class declared under the package will be binded to that package.
+	
+How to create a package name?
+Java language has not defined any rules in creating/naming a package, but it has provided an recommendation, the package name we are creating should be as unique as possible and should not collide with any other package name in the world. So that using that package name we can uniquely identify our own user-defined dataType/class we are creating
+	
+How do we ensure the packagename that we delcare is unique from any other packagename defined by the people in the world?
+We need to follow certain conventions in declaring a packageName so that it will unique from other packages
+
+1. The packageName should start with reverse of the domain name, where given the domain names are unique within the world.
+com.ibm
+com.oracle
+in.co.google
+etc
+by using the domain name we will be able to avoid naming collision across anyone who defines their own dataTypes with same name
+
+even though we are able to resolve naming collision by taking domain name as an package name we still landup into naming collision across various different software products produced by the same company to resolve the naming collision use
+domain.productname, for eg. com.ibm.wsid
+
+but again within the product there can be multiple modules or subsystems which might use same classnames so it is recommended to use modulename also as part of the packageName
+com.ibm.wsid.ui
+
+in addition it is recommended to add role or purpose of the class to more uniquely identify the class
+com.ibm.wsid.ui.controller
+
+domainName.productName.moduleName.stereotype
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

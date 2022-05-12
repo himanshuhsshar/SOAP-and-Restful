@@ -1,0 +1,139 @@
+What is xsd namespace, why do we need to use it?
+namespace is used for resolving naming collision that causes across the complexTypes, simpleTypes and elements created by various different xsd developers
+
+There are 2 parts in working with namespaces
+1. declare complexType, simpleType or elements under an namespace
+2. use the complexType, simpleTypes or elements from the namespace
+
+#1. How to declare namespace as part of the xsd document?
+book.xsd
+----------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.amazon.com/kindle/books" xmlns:akb="http://www.amazon.com/kindle/books">
+
+	<xs:element name="publisher" type="akb:publisherType" />
+	<xs:complexType name="publisherType">
+		<xs:sequence>
+			<xs:element name="publisher-nm" type="xs:string"/>
+			<xs:element name="est-dt" type="xs:date"/>
+			<xs:element name="no-of-titles" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+to ensure the namespace label is as unique as possible, follow convention in writing the namespacelabel
+--------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<account>
+	<account-no/>
+	<account-holder-name/>
+	<account-type/>
+	<opening-dt/>
+	<registered-mobile-no/>
+	<registered-email-address/>
+	<balance/>
+	<address>
+		<address-line1/>
+		<address-line2/>
+		<city/>
+		<state/>
+		<zip/>
+		<country/>
+	</address>
+</account>
+--------------------------------------------------------------------------------------------
+How to use the elements from the namespace?
+	
+d:\work\app1:/>	
+package pkg1;
+class A {
+	
+}
+
+
+d:\work\app2:/>
+
+package pkg2;
+class B {
+	pkg1.A a;
+	
+	public void m2() {
+		a = new pkg1.A();
+		
+	}
+}
+
+d:\work\app2:/> javac -d . B.java
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

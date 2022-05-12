@@ -1,0 +1,124 @@
+attributes:
+attributes are used for defining supplementary information to an element. 
+	
+characteristics:-	
+	1. we should use attributes when we want to represent data in short that spans at max a word in nature. if we want to hold multiples words/lines of data then it is recommended to use child element only
+	2. attributes will not have order
+	3. attributes will not have occurrences
+	4. all the data we represent in an attribute is of CDATA type only
+	
+How to declare attribute for an compound element in xsd?
+<?xml version="1.0" encoding="utf-8"?>
+<train-ticket coach-no="s3">
+	<train-no/>
+	<source/>
+	<destination/>
+	<journey-dt/>
+	<amount/>
+	<passengers>
+		<passenger berth-no="12">
+			<fullname/>
+			<age/>
+			<gender/>
+		</passenger>
+	</passengers>
+</train-ticket>
+	
+<xs:element name="passenger" type="passengerType"/>	
+<xs:complexType name="passengerType">
+	<xs:sequence>
+		<xs:element name="fullname" type="xs:string"/>
+		<xs:element name="age" type="xs:int"/>
+		<xs:element name="gender" type="xs:string"/>
+	</xs:sequence>
+	<xs:attribute name="berth-no" type="xs:int" use="required/optional/prohibited"/>
+</xs:complexType>
+--------------------------------------------------------------------------------------------
+working with restrictions
+-------------------------
+we can impose restrictions on the data to be written as part of an element using data/element restrictions
+
+<?xml version="1.0" encoding="utf-8"?>
+<passport>
+	<passport-no>p9383</passport-no>
+	<first-name/>
+	<last-name/>
+	<expiry-date/>
+	<dob/>
+	<gender>male/female</gender>
+	<issued-date/>
+	<issued-authority/>
+	<address>
+		<address-line1/>
+		<address-line2/>
+		<city/>
+		<state/>
+		<zip>77899</zip>
+		<country/>
+	</address>
+</passport>
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema>
+	<xs:element name="address" type="addressType"/>
+	<xs:complexType name="addressType">
+		<xs:sequence>
+			<xs:element name="address-line1" type="xs:string"/>
+			<xs:element name="address-line2" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="zipType"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="zipType">
+		<xs:restriction base="xs:int">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="genderType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="male"/>
+			<xs:enumeration value="female"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

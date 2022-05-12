@@ -1,0 +1,106 @@
+xsd namespaces
+namespaces are used for resolving the naming collision that arises across various different xsd complexTypes/simpleTypes or elements created by various different xsd developers
+
+How to work with packages?
+There are 2 parts there while working with packages.
+1. creating an class under a package
+2. using the class from an package
+	
+#1. create a class under a package
+while creating the class we need to declare the class under the package as below.
+package packageName;
+class className {}
+
+when we declare a class under a package, by default the class will be binded to the package, so while using the class we need to refer using fqn of the class.
+	
+There are no rules or restrictions in writting the package name, but there is a recommendation. write the package name as unique as possible, so that it should not collide with anyother package name within the world
+To ensure the packageName we write will not collide with any other packagename, we need to follow certain convention in writing it.
+package (reverse)domainName.product.module.stereotype;
+
+for eg.. we can declare a class under a package as below
+package com.ibm.wsid.core.converter;
+public class CannonicalObjectConverter {}
+
+While working with xsd namespaces also there are 2 parts of it.
+1. declare complexTypes/elements/simpleTypes under an namespace
+2. use the complexType, simpleTypes or elements from the namespace
+
+#1. How to declare complexType, simpleType or element under a namespace?
+
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="namespacelabel">
+
+</xs:schema>
+we can write any arbitary set of characters as part of the namespacelabel there are no rules/restrictions in writing it, but there is a recommendation that it should be as unique as possible that it should not collide with any other namespace label in the world.
+	
+To ensure the namespace label is unique from others we need to follow convention in writing it. always use domainnames as part of the namespace label since domainnames are unique inthe world
+http://www.ibm.com/businessUnit/purpose
+
+po.xsd
+--------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.ibm.com/partners/sales" xmlns:ips="http://www.ibm.com/partners/sales">
+	
+	<xs:element name="purchase-order" type="ips:purchaseOrderType"/>
+	<xs:complexType name="purchaseOrderType">
+		<xs:sequence>
+			<xs:element name="order-items" type="ips:orderItemsType"/>		
+			<xs:element name="shipping-address" type="ips:shippingAddressType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="orderItemsType">
+		<xs:sequence>
+			<xs:element name="item" type="ips:itemType" minOccurs="1" maxOccurs="unbounded"/>		
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="item-code" type="xs:string"/>
+			<xs:element name="quantity" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>	
+	
+	<xs:complexType name="shippingAddressType">
+		<xs:sequence>
+			<xs:element name="address-line1" type="xs:string"/>
+			<xs:element name="address-line2" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="xs:int"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
