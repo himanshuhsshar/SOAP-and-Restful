@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/work/master/webservices/20223003/XSD/policy.xsd">
+	<policy-no>p0383</policy-no>
+	<policy-holder-name>kevin peterson</policy-holder-name>
+	<policy-type>risk coverage</policy-type>
+	<tenure>180</tenure>
+	<premium-amount>4500</premium-amount>
+	<insurred-amount>200000</insurred-amount>
+	<nominee>
+		<fullname>pam</fullname>
+		<dob>1985-01-20</dob>
+		<gender>female</gender>
+		<relationship>wife</relationship>
+	</nominee>
+</policy>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sa:account xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sbi.com/netbanking/accounts file:///D:/work/master/webservices/20223003/NAMESPACES/po.xsd" xmlns:sa="http://www.sbi.com/netbanking/accounts">
+	<sa:account-no>ac9833</sa:account-no>
+	<sa:account-holder-nm>Fedrick</sa:account-holder-nm>
+	<sa:opened-dt>2022-01-12</sa:opened-dt>
+	<sa:account-type>savings</sa:account-type>
+	<sa:registered-mobile-no>989373789</sa:registered-mobile-no>
+	<sa:registered-email-address>fedrick@gmail.com</sa:registered-email-address>
+	<sa:balance>3944</sa:balance>
+	<sa:address>
+		<sa:address-line1>1837, joseph st</sa:address-line1>
+		<sa:address-line2>north highway</sa:address-line2>
+		<sa:city>columbus</sa:city>
+		<sa:state>ohio</sa:state>
+		<sa:zip>9377</sa:zip>
+		<sa:country>USA</sa:country>
+	</sa:address>
+</sa:account>

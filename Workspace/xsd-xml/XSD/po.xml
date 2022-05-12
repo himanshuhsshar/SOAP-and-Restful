@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<purchase-order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/work/master/webservices/20223003/XSD/po.xsd">
+	<order-items>
+		<item>
+			<item-code>ic0383</item-code>
+			<quantity>10</quantity>
+		</item>
+	</order-items>
+	<shipping-address>
+		<address-line1>George St, 2nd lane</address-line1>
+		<address-line2>202</address-line2>
+		<city>Delaware</city>
+		<state>Ohio</state>
+		<zip>9383</zip>
+		<country>USA</country>
+	</shipping-address>
+</purchase-order>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<account xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/work/master/webservices/20223003/XSD/account.xsd">
+	<account-no>ac939</account-no>
+	<account-holder-name>bruke</account-holder-name>
+	<account-type>savings</account-type>
+	<mobile-no>939263859</mobile-no>
+	<email-address>bruke@yahoo.com</email-address>
+	<balance>9374</balance>
+	<branch-code>b9384</branch-code>	
+</account>
