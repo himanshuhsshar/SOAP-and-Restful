@@ -1,0 +1,138 @@
+How to declare a simple element of an xml in an xsd document?
+<xs:element name="elementname" type="dataType"/>
+
+How to declare a compound element of an xml in an xsd document?
+	
+before using an element we should declare it, identify the nature of the data we wanted to store within the element, based on that choose an appropriate data type that is available as part of the xsd language in delcaring an element 	
+	
+<item>
+	<item-code>ic083</item-code>
+	<quantity>93</quantity>
+</item>
+as there are no pre-defined datatypes available as part of the xsd language representing the nature of the data we wanted to store in the <item> element, we need to create our own user-defined data type representing the nature of the data we wanted to store in that element.
+	
+<xs:complexType name="itemType">
+	<xs:sequence>
+		<xs:element name="item-code" type="xs:string"/>
+		<xs:element name="quantity" type="xs:int"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:element name="item" type="itemType"/>
+-----------------------------------------------------------------------------------------
+
+<author>
+	<author-name>Brad</author-name>
+	<dob>1982-01-29</dob>
+	<gender>Male</gender>
+	
+	<pen-name>truth</pen-name>
+</author>
+
+<xs:complexType name="authorType">
+	<xs:sequence>
+		<xs:element name="author-name" type="xs:string"/>
+		<xs:element name="dob" type="xs:date"/>
+		<xs:element name="gender" type="xs:string"/>
+		<xs:element name="pen-name" type="xs:string"/>
+	</xs:sequence>
+</xs:complexType>
+<xs:element name="author" type="authorType"/>	
+-----------------------------------------------------------------------------------------
+po.xsd
+-------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">	
+	<xs:element name="purchase-order" type="purchaseOrderType"/>
+	
+	<xs:complexType name="purchaseOrderType">
+		<xs:sequence>
+			<xs:element name="order-items" type="orderItemsType"/>
+			<xs:element name="shipping-address" type="shippingAddressType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="orderItemsType">
+		<xs:sequence>
+			<xs:element name="item" type="itemType" minOccurs="1" maxOccurs="unbounded"/>	
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="item-code" type="xs:string"/>
+			<xs:element name="quantity" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+			
+	<xs:complexType name="shippingAddressType">
+		<xs:sequence>
+			<xs:element name="address-line1" type="xs:string"/>
+			<xs:element name="address-line2" type="xs:string"/>
+			<xs:element name="city" tye="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="xs:int"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>	
+</xs:schema>
+
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>asfd</item-code>
+			<quantity>424</quantity>
+		</item>
+		<item>
+			<item-code>asfd</item-code>
+			<quantity>424</quantity>
+		</item>
+	</order-items>
+	<shipping-address>
+		<address-line1></address-line1>
+		<address-line2></address-line2>	
+		<city></city>
+		<state></state>
+		<zip></zip>
+		<country></country>
+	</shipping-address>
+</purhcase-order>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

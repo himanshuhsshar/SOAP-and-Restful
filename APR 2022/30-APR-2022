@@ -1,0 +1,134 @@
+How to extend a complexType from another complexType?
+
+<tour-package>
+	<package-no/>
+	<package-name/>
+	<days/>
+	<nights/>
+	<package-amount/>
+	<places>
+		<place>
+			<place-name/>
+			<type/>
+			<travel-mode/>
+			<hours/>
+			<description/>
+		</place>
+		<international-place>
+			<place-name/>
+			<type/>
+			<travel-mode/>
+			<hours/>
+			<description/>
+			<passport-required/>
+			<visa-required/>
+			<age-limit/>
+		</international-place>
+	</places>
+</tour-package>
+
+tourist-packages.xsd
+---------------------
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:element name="tour-package" type="tourPackageType"/>
+<xs:complexType name="tourPackageType">
+	<xs:sequence>
+		<xs:element name="package-no" type="xs:int"/>
+		<xs:element name="package-name" type="xs:string"/>
+		<xs:element name="days" type="xs:int"/>
+		<xs:element name="nights" type="xs:int"/>
+		<xs:element name="package-amount" type="xs:float"/>
+		<xs:element name="places" type="placesType"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="placesType">
+	<xs:choice>
+		<xs:element name="place" type="placeType" minOccurs="1" maxOccurs="unbounded" />
+		<xs:element name="international-place" type="internationalPlaceType" minOccurs="1" maxOccurs="unbounded"/>
+	</xs:choice>
+</xs:complexType>
+
+
+<xs:complexType name="placeType">
+	<xs:sequence>
+		<xs:element name="place-name" type="xs:string"/>
+		<xs:element name="type" type="xs:string"/>
+		<xs:element name="travel-mode" type="xs:string"/>
+		<xs:element name="hours" type="xs:int"/>
+		<xs:element name="description" type="xs:string"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="internationalPlaceType">
+	<xs:complexContent>
+		<xs:extension base="placeType">
+			<xs:sequence>
+				<xs:element name="passport-required" type="xs:boolean"/>
+				<xs:element name="visa-required" type="xs:boolean"/>
+				<xs:element name="age-limit" type="xs:int"/>
+			</xs:sequence>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+------------------------------------------------------------------------------------------
+What are attributes what is the purpose of them?
+attributes are used for attaching additional information to an element.
+attributes are used for defining supplementary information to an element
+
+1. if we want represent data that spans a word then use attributes, otherwise write it as an child element only
+2. attributes will not have occurrences
+3. all the data we write as part of the attribute is of CDATA type only
+
+<?xml version="1.0" encoding="utf-8"?>
+<train-ticket coach="">
+	<ticket-no/>
+	<source/>
+	<destination/>
+	<journey-dt/>
+	<amount/>
+	<passengers>
+		<passenger berth-no="">
+			<passenger-name/>
+			<age/>
+			<gender/>
+		</passenger>
+	</passengers>
+</train-ticket>
+
+<xs:schema>
+	<xs:element name="ticket-no" type="xs:string"/>
+	<xs:element name="source" type="xs:string"/>
+	<xs:element name="destination" type="xs:string"/>
+	<xs:element name="journey-dt" type="xs:date"/>	
+	<xs:element name="amount" type="xs:float"/>
+	
+	<xs:element name="passenger" type="passengerType"/>
+	<xs:complexType name="passengerType">
+		<xs:sequence>
+			<xs:element name="passenger-name" type="xs:string"/>
+			<xs:element name="age" type="xs:int"/>
+			<xs:element name="gender" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="berth-no" type="xs:int" use="required"/>
+	</xs:complexType>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

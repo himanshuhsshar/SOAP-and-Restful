@@ -1,0 +1,144 @@
+How to declare a compound element of an xml in an xsd document?
+declaring an compound element is an 2 step process
+1. representing the structure of the compound element declare a complexType
+2. create an element of that complexType
+
+<product>
+	<product-no></product-no>
+	<product-name></product-name>
+	<description></description>
+	<price></price>
+</product>
+
+<xs:element name="product" type="productType"/>
+<xs:complexType name="productType">
+	<xs:sequence>
+		<xs:element name="product-no" type="xs:int"/>
+		<xs:element name="product-name" type="xs:string"/>
+		<xs:element name="description" type="xs:string"/>
+		<xs:element name="price" type="xs:float"/>
+	</xs:sequence>
+</xs:complexType>
+
+d:\po.xsd
+-----------
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="purchase-order" type="purchaseOrderType"/>
+	<xs:complexType name="purchaseOrderType">
+		<xs:sequence>
+			<xs:element name="order-items" type="orderItemsType"/>
+			<xs:element name="shipping-address" type="shippingAddressType"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="orderItemsType">
+		<xs:sequence>	
+			<xs:element name="item" type="itemType" minOccurs="1" maxOccurs="unbounded"/>		
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="item-code" type="xs:string"/>
+			<xs:element name="quantity" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="shippingAddressType">
+		<xs:sequence>
+			<xs:element name="address-line1" type="xs:string"/>
+			<xs:element name="address-line2" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="xs:int"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>	
+</xs:schema>
+
+
+d:\po.xml
+----------
+<?xml version="1.0" encoding="utf-8"?>
+<purchase-order xsi:noNamespaceSchemaLocation="file:///d:/po.xsd">
+	<order-items>
+		<item-code>ic083</item-code>
+		<quantity>39</quantity>
+	</order-items>
+	<shipping-address>
+		<address-line1>9md93</address-line1>
+		<address-line2>93yjnf</address-line2>
+		<city>hyderabad</city>
+		<state>ts</state>
+		<zip>9335</zip>
+		<country>India</country>
+	</shipping-address>
+</purchase-order>
+------------------------------------------------------------------------------------------
+How to declare an xsd with anonymous complexType defined inside?
+
+<?xml version="1.0" encoding="utf-8"?>
+<policy>
+	<policy-no/>
+	<policy-holder-name/>
+	<policy-type/>
+	<tenure/>
+	<premium-amount/>
+	<insurred-amount/>
+	<nominee>
+		<fullname/>
+		<dob/>
+		<gender/>
+		<relation-ship/>
+	</nominee>
+</policy>
+
+policy.xsd
+----------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:element name="policy">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="policy-no" type="xs:string"/>
+			<xs:element name="policy-holder-name" type="xs:string"/>
+			<xs:element name="policy-type" type="xs:string"/>
+			<xs:element name="tenure" type="xs:int"/>
+			<xs:element name="insurred-amount" type="xs:float"/>
+			<xs:element name="nominee">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="fullname" type="xs:string"/>
+						<xs:element name="dob" type="xs:date"/>
+						<xs:element name="gender" type="xs:string"/>
+						<xs:element name="relation-ship" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

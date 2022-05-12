@@ -1,0 +1,153 @@
+How to validate an xml against xsd document?
+<?xml version="1.0" encoding="utf-8"?>
+<purchase-order xsi:noNamespaceSchemaLocation="file:///d:/po.xsd">
+</purchase-order>
+
+#1. sequence vs all
+<?xml version="1.0" encoding="utf-8"?>
+<account>
+	<account-no>ac983</account-no>
+	<account-holder-nm>Bruke</account-holder-nm>
+	<dob>1989-10-21</dob>
+	<gender>Male</gender>
+	<account-type>savings</account-type>
+	<branch-code>b03</branch-code>
+	<balance>993</balance>
+</account>
+
+account.xsd
+------------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema>
+	<xs:element name="account" type="accountType"/>
+	<xs:complexType name="accountType">
+		<xs:all>
+			<xs:element name="account-no" type="xs:string"/>
+			<xs:element name="account-holder-nm" type="xs:string"/>
+			<xs:element name="dob" type="xs:date"/>
+			<xs:element name="gender" type="xs:string"/>
+			<xs:element name="account-type" type="xs:string"/>
+			<xs:element name="branch-code" type="xs:string"/>
+			<xs:element name="balance" type="xs:float"/>	
+		</xs:all>
+	</xs:complexType>
+</xs:schema>
+
+<xs:all> tells the all of the child elements are part of this complexType, but it doesnt enforce any order of those elements
+------------------------------------------------------------------------------------------
+Working with Extending an ComplexType
+
+<?xml version="1.0" encoding="utf-8"?>
+<parcel>
+	<parcel-no>p938</parcel-no>
+	<sender-name/>
+	<receiver-name/>
+	<booking-dt/>
+	<source-address>
+		<house-address/>
+		<city/>
+		<state/>
+		<zip/>
+		<country/>
+		<county-code/>
+	</source-address>
+	<us-destination-address>
+		<house-address/>
+		<city/>
+		<state/>
+		<zip/>
+		<country/>
+		<county-code/>
+	</destination-address/>
+	<amount/>
+</parcel>
+
+parcel.xsd
+-----------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema>
+	<xs:element name="parcel" type="parcelType"/>
+	<xs:complexType name="parcelType">
+		<xs:sequence>
+			<xs:element name="parcel-no" type="xs:string"/>
+			<xs:element name="sender-name" type="xs:string"/>
+			<xs:element name="receiver-name" type="xs:string"/>
+			<xs:element name="booking-dt" type="xs:date"/>
+			
+			<xs:element name="source-address" type="addressType" minOccurs="0"/>
+			<xs:element name="destination-address" type="addressType" minOccurs="0"/>	
+			<xs:element name="usa-source-address" type="usaAddressType" minOccurs="0"/>
+			<xs:element name="usa-destination-address" type="usaAddressType" minOccurs="0"/>
+			
+			<xs:element name="amount" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="addressType">
+		<xs:sequence>
+			<xs:element name="street-address" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="xs:int"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="usaAddressType">
+		<xs:complexContent>
+			<xs:extension base="addressType">
+				<xs:sequence>
+					<xs:element name="county-code" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
