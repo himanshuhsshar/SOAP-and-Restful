@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lip:policy xmlns:lip="http://www.lic.org/insurance/policy"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lic.org/insurance/policy policy.xsd ">
+	<lip:policy-no>p03938093</lip:policy-no>
+	<lip:tenure>60</lip:tenure>
+	<lip:insurred-amount>120000</lip:insurred-amount>
+	<!-- <lip:member-info>
+		<lip:fullname>brandon k</lip:fullname>
+		<lip:dob>2001-10-01</lip:dob>
+		<lip:gender>Male</lip:gender>
+		<lip:aadhar-no>ahd98383893</lip:aadhar-no>
+	</lip:member-info> -->
+	<lip:plan>
+		<lip:plan-no>pl001</lip:plan-no>
+		<lip:plan-name>Suraksha</lip:plan-name>
+		<lip:plan-type>Risk Coverage</lip:plan-type>
+		<lip:min-eligibility-age>18</lip:min-eligibility-age>
+		<lip:max-eligibility-age>65</lip:max-eligibility-age>
+		<lip:min-insurred-amount>100000</lip:min-insurred-amount>
+	</lip:plan>
+</lip:policy>

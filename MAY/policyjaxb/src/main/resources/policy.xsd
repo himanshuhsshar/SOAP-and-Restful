@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.lic.org/insurance/policy"
+	xmlns:lip="http://www.lic.org/insurance/policy"
+	elementFormDefault="qualified">
+
+	<xs:element name="policy" type="lip:policyType"/>
+	
+	<xs:complexType name="policyType">
+		<xs:sequence>
+			<xs:element name="policy-no" type="xs:string" />
+			<xs:element name="tenure" type="xs:int" />
+			<xs:element name="insurred-amount" type="xs:float" />
+			<xs:element name="member-info" type="lip:memberInfoType" />
+			<xs:element name="plan" type="lip:planType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="memberInfoType">
+		<xs:sequence>
+			<xs:element name="fullname" type="xs:string" />
+			<xs:element name="dob" type="xs:date" />
+			<xs:element name="gender" type="xs:string" />
+			<xs:element name="aadhar-no" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="planType">
+		<xs:sequence>
+			<xs:element name="plan-no" type="xs:string" />
+			<xs:element name="plan-name" type="xs:string" />
+			<xs:element name="plan-type" type="xs:string" />
+			<xs:element name="min-eligibility-age" type="xs:int" />
+			<xs:element name="max-eligibility-age" type="xs:int" />
+			<xs:element name="min-insurred-amount" type="xs:float" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
