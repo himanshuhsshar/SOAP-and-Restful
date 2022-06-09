@@ -1,0 +1,180 @@
+There are 2 types of operations there in xml binding technologies
+1. one-time operation
+The jaxb has provided 2 tools to work with one-time operations
+	1. xjc
+	2. schemagen
+	
+2. runtime operations
+There are 3 runtime operations are there
+	1. Marshalling
+	2. UnMarshalling
+	3. In-Memory Validation
+The jaxb api has provided required classes to work with runtime operations
+
+#1. one-time operations
+In order to work with one-time operation we need to download the jaxb binary distribution and setup the required environment
+1. download the jaxbri distribution from below link
+https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-ri/2.3.1/jaxb-ri-2.3.1.zip
+2. extract the zip file and place the jax-ri directory under c:\ drive
+3. The directory structure of the jax-ri is as shown below
+c:\jaxb-ri
+|-bin
+	|-xjc.bat
+	|-schemagen.bat
+|-mod
+|-samples
+|-docs
+4. we want to run the xjc and schemagen tools from any where within our computer, so to run a tool away from its home directory location we need to the system PATH pointing to the directory where the tools are there. set the below 2 environment variables
+set JAXB_HOME=c:\jaxb-ri
+set PATH=%PATH%;%JAXB_HOME%\bin
+
+5. but after setting the above path when we run the xjc --help the command gives error because of bad classpath configuration in xjc.bat file, so we need to make below changes in
+c:\jaxb-ri\bin\xjc.bat
+
+1. change the javax.activation to javax.activation-api.jar matching with jar name under mod\ directory
+2. change the directory name from lib to mod and name of jar from relaxngDatatype.jar relaxng-datatype.jar
+make the above changes to use the xjc.bat file
+-------------------------------------------------------------------------------------------
+How to run the xjc tool?
+#1 setup the maven project and add xsd and xml into the project as below.
+d:\work:/>
+policyjaxb
+|-src
+	|-main
+		|-java
+		|-resources
+			|-po.xsd
+			|-po.xml
+|-target
+	|-classes
+		|-*.class
+	|-*.jar		
+|-pom.xml
+
+#2. goto the project directory and run the xjc tool by using the below switches
+d:\work\policyjaxb:/>
+
+src\main\resources\po.xsd
+|
+xjc 
+|- -d src\main\java
+
+xjc -d src\main\java src\main\resources\po.xsd
+
+#3. what are the binding classes it is going to generate?
+|-src\main\resources\po.xsd
+xjc
+|-package (maps namespace to packageName)
+|-binding classes
+|-ObjectFactory.java
+|-package-info.java
+
+The xjc tool takes the targetNamespace from the given xsd and maps it to an packageName
+It follows the below process in converting a namespace to packageName
+namespace: "http://www.ebay.in/sales/types"
+	#1. remove http://www from the namespace label, since these are common for every namespace label
+	#2. it picks the domain name form we have written in the namespace label
+	ebay.in and inverse the domainname to form a package name
+	-> in.ebay
+	#3. then extracts the remaining tokens from the namespace label separated by "/" and appends to the package name
+	"in.ebay.sales.types"
+		
+http://www.amazon.com/kindle/types = com.amazon.kindle.types
+under the above package it generates the binding classes along with ObjectFactory.java and package-info.java
+
+<?xml version="1.0" encoding="utf-8"?>
+<policy>
+  <policy-no>p0873335</policy-no>
+  <tenure>48</tenure>
+  <insurred-amount>130000</insurred-amount>
+  <member-info>
+    <fullname>micheal</fullname>
+    <age>23</age>
+    <gender>Male</gender>
+  </member-info>
+  <plan>
+    <plan-no>98</plan-no>
+    <plan-name>jeevan saral</plan-name>
+    <plan-type>risk coverage</plan-type>
+  </plan>
+</policy>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

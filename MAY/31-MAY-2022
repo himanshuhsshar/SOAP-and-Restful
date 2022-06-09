@@ -1,0 +1,223 @@
+what is a webservice?
+Complex business functionality that is internal to the organization has been exposed in an interoperable and distributed mannger to the business parts is called "webservices".
+	
+Webservices Architecture
+In Webservices there are 2 parts are there
+1. consumer program
+consumer is a program always looking for consuming business functionality or data from the other programs
+
+2. provider program
+provider is a program always provides business functionality or data to the consumer programs whoever requested	
+
+
+These 2 programs are running on 2 different computers physically separated from each other. if they need to communicate with each other they need the following:
+
+#1 Network
+The underlying machines on which these 2 programs are running must be inter-connected with each other over the network, then only the physical bits of data can move across from one computer to the other computer
+
+#2. CharSet encoding standard 
+To transmit the data over the physical channel
+The data cannot be transmitted over the physical network in symbolic format, the wires/network can only carry data in binary format (0/1) only. So we need to express the symbolic data interms of binary representation to transmit the data over the network.
+	
+For each symbol we want to use in representing the data and transfer the data we can define an numeric value/decimal number, then we can convert the decimal number into binary format using LCM
+The reciever of the data will convert the binary data he received into decimal format and maps it to the corresponding symbol to interpret the data
+
+If these 2 parties has to exchange the data between them they need to agree on common encoding decimal values unless otherwise the data would be interpreted wrongly. Looks like it is a common need for everyone to exchange the data over the network
+
+That is where character set encoding standards are introduced to encode/decode the symbols in exchanging the data. These are called CharSet encoding standards. There are multiple charset encoding standards are there
+1. ASCII  = American standard code for information interchange
+2. UNICODE
+3. ISO-9001
+4. UTF-8
+5. UTF-16
+etc
+The consumer and provider should use the same charset encoding standard in exchanging the data between them
+
+#3. protocol
+If both the parties are interconnected with each other over the network and are exchanging the data using common charSet encoding standard, it is not sufficient to exchange the data effectively, they need to use protocols.
+protocol is nothing but set of rules, defined by both the parties in exchanging the data between them effectively.
+	
+Why do we need a protocol, what does it provide?
+1. protocol ensures when the sender sends the data it will be received by the intended receiver only over the network
+2. protocol ensures the guaranteed delivery of the data over the network
+3. even though all the parties are exchanging the data over the same physical network channel, protocol gives us an illusion that each parties has their own dedicated network channel over which their data is being exchanged.
+It creates an interleaved channel of communication where each data packet is send without colliding with other packets send by other people connected over the same network
+
+There are 2 types of protocols are there
+1. transport protocols
+Transport protocols are responsible for carrying the data over the physical network channel. few of the transport protocols are
+	1. TCP/IP
+	2. UDP
+	
+2. application protocols
+application protocols defines messaging standards and structure in exchaning the data between both the parties.
+	1. HTTP
+	2. SMTP
+	3. FTP
+	4. RDP
+	
+3. The consumer and provider inorder to exchange the data between them, they need to use data interchange standard. The recommended data interchange standard for exchanging the data is XML.
+XML Stands for eXtensible markup language it is used for representing or storing the data. the information represented in xml format is structured and has semantics attached to it so that no chance that someone mis-interpret the data
+
+4. ontop of the xml we should use soap protocol for exchanging the data between the consumer and provider
+soap stands for simple object access protocol, soap is also an xml, but it is an special xml. it has pre-defined set of tags and fixed structure, we need to write the soap xml by using those tags and following the structure then only it is called soap xml
+
+soap is used for classification of the data, when we are exchanging the data between the programs, there is always 2 types of data
+1. helper data = it is the data that will be acting as an input in interpreting the business data
+2. business data = is the actual data that acts as an input to perform business operation
+
+So we dont classify the information the receiver will not be able to understand and perform operation.
+To help us in classifying the data soap comes into picture.
+SOAP has defined fixed structure with predefined tags, letting the applications interpret the data properly
+SOAP xml has 2 parts
+1. header section
+2. body section
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:envelope>
+	<header>
+		<password>12345</password>	
+	</header>
+	<body>
+		<signup-account>
+			<accountno>ac938938</accountno>
+			<username>samuel</username>
+			<password>abcde</password>
+		</signup-account>	
+	</body>
+</soap:envelope>
+	
+soap is also called application-specific protocol. soap is also called as carieer of the actual payloay
+	
+
+UDDI registry stands for Univeral description discovery and integration registry, the uddi registries are used for exchanging the contract (wsdl) between the consumer and provider. The UDDI registries are also called as "Xml Registries" as those are build on xml technology, to make them interoperable
+
+The UDDI registries are called "design-time" repositories as these are used during the time of building the consumer, those are not called as runtime repositories, since those are not used while exchanging the data between the consumer and provider
+--------------------------------------------------------------------------------------------
+
+WS-I organization [Webservice interoperability organization]
+It is an open source organization, being primary formed for standardizing the standards requrired for achieving inter-operability
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

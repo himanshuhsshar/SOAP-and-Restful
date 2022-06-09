@@ -1,0 +1,59 @@
+There are 2 types of operations are there
+1. one-time operations
+	1.1 xjc
+	1.2 schemagen
+	
+2. runtime operations
+	2.1 Marshalling
+	2.2 UnMarshalling
+	2.3 In-Memory Validation
+	
+
+JAXBContext
+There are 2 purposes JAXBContext serves
+1. it acts as factory for creating the object of Marshaller/UnMarshaller classes
+2. it acts as context for holding the Binding classes in the memory, so that unmarshaller/marshaller can quickly locate the binding classes from the memory itself.
+	
+
+JAXBContext jaxbContext = JAXBContext.newInstance("org.lic.insurance.types");
+// this loads all the binding classes from the specified package and keeps in memory
+UnMarshaller unmarshaller = jaxbContext.createUnMarshaller();
+JAXBElement<PolicyType> jaxbElement =  unmarshaller.unmarshal(new File("policy.xml"));
+PolicyType policyType = jaxbElement.getValue();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

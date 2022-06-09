@@ -1,0 +1,68 @@
+
+JAXBContext
+The JAXBContext is used for 2 reasons
+	1. it acts as an factory for creating the object of Marshaller/UnMarshaller
+	2. It acts as an context for holding the binding classes in the memory
+UnMarshaller
+	-JaxbElement<PolicyType> jaxbElement =  unmarshal(new File("d:\\policy.xml"))
+		
+		
+#1 UnMarshalling
+class Test {
+	public static void main(String args[]) {
+		JAXBContext jaxbContext = JAXBContext.newInstance("lic.org.insurance.types");
+		
+		SchemaFactory sfactory = SchemaFactory.newInstance(XMLConstants.W3C_SCHEMA_NAMESPACE_URI);
+		Schema policySchema = sfactory.newSchema(new File("d:\\policy.xsd"));
+		
+		UnMarshaller unmarshaller = jaxbContext.createUnMarshaller();
+		unmarshaller.setSchema(policySchema); // in-memory validation
+		
+		JAXBElement<PolicyType> jaxbElement = unmarshaller.unmarshal(new File("d:\\policy.xml"));
+		PolicyType policy = jaxbElement.getValue();
+		sop(policy.getPolicyNo());
+	}
+}
+
+#2. Marshalling
+class Test {
+	public static void main(String[] args) {
+		PlanType plan = null;		
+		PolicyType policy = null;
+		Marshaller marshaller = null;
+		JAXBContext jaxbContext = null;
+		MemberInfoType memberInfo = null;
+		
+		
+		plan = new PlanType();
+		memberInfo = new MemberInfo();
+		policy = new PolicyType();
+		// populate all of the objects with data
+		SchemaFactory sfactory = SchemaFactory.newInstance(XMLConstants.W3C_SCHEMA_NAMESPACE_URI);
+		Schema policySchema = sfactory.newSchema(new File("d:\\policy.xsd"));
+		
+		jaxbContext = JAXBContext.newInstance("lic.org.insurance.plans");
+		marshaller = jaxbContext.createMarshaller();
+		marshaller.setSchema(policySchema); // in-memory validation
+		
+		marshaller.marshal(policy, System.out);		
+	}
+}
+--------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+How to generate the binding classes by running the xjc tool?
+|-src/main/resources/po.xsd
+xjc
+| -d src/main/java
+
+What does xjc generates?
+|-src/main/resources/po.xsd
+xjc
+|-package
+|-binding classes
+|-ObjectFactory.java
+|-package-info.java
+
+
