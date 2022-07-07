@@ -1,0 +1,38 @@
+#2. Which endpoint based webservice are you working on?
+There are 2 endpoint based webservices are there
+1. servlet endpoint
+if the incoming request is received by an servlet at the provider end, then it is called servlet endpoint based webservice
+
+2. ejb endpoint
+if the incoming request is recieved by an ejb at the provider side then it is called ejb endpoint based webservice
+
+#3. Which approach are you using in building the webservice provider?
+There are 2 approaches are there in building the webservice
+1. contract-first approach/bottom-up approach
+2. contract-last approach/top-down approach
+	
+#4. Which Message Exchange Pattern (MEP) are you using in developing the web service?
+Message Exchange pattern indicates how does the communication takes place between the consumer and provider is indicated by the MEP
+There are 3 MEP are there
+1. synchronous req/reply
+2. asynchronous req/reply or delayed response
+3. one-way invoke or fire and forget
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

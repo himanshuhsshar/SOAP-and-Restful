@@ -1,0 +1,276 @@
+Which type of web service are we developing?
+ws-i
+|-bp-1.0
+	|-jaxrpc api
+		|-jaxrpc si
+			|-servlet endpoint
+			|-contract-last approach
+			|-sync req/reply
+			|-rpc-encoded
+
+#1.
+Incase of contract-last approach always the development of web service starts from java. From the world of java an interface acts as an contract between consumer and provider. So the development should begin by writing an interface
+	
+The interface we write is called "SEI interface". SEI stands for service endpoint interface. since the interface we are writing represents the web service we are developing, it is called service endpoint interface
+	
+There are rules we need to follow in writing the service endpoint (SEI) interface	
+1. The SEI interface must and should be extending from java.rmi.Remote interface. The java.rmi.Remote interface is an marker interface, it doesnt have methods inside it, then why are we writing our interface extending from java.rmi.Remote interface?
+There are 2 reasons behind it.
+	1.1 we can easily distinguish an normal interface used within our project from the webservice interfaces by looking at extending from java.rmi.Remote
+	1.2 it indicates the methods declared inside them are accessed remotely
+	
+	interface TrainEnquiry extends java.rmi.Remote {
+
+	}
+	
+2. declare only the methods we wanted to expose them as web service methods. all the methods declared inside the SEI interface becomes webservice methods.
+	
+we need to follow certain rules in declaring these methods
+	2.1 The methods we declared can have any name, but the parameters those are taking and the return values these methods are returning are recommended to be Serializable
+	2.2 The methods must and should be declared to throws RemoteException
+	
+	interface TrainEnquiry extends java.rmi.Remote {
+		String pnrStatus(String pnrNo) throws RemoteException;
+		String trainStatus(String trainNo) throws RemoteException;
+	}
+
+Why does the SEI Interface methods must and should declare to throws RemoteException?
+There are 3 reasons behind it:
+
+1. Why we should only throw RemoteException?
+The provider/interface methods are designed to only throw RemoteException, so that at the consumer end we can easily distinguish whether the exception reported by the consumer program is caused due to local code or from the provider
+if the consumer ran into RemoteException or any of the sub-classes of it then we can understand it has been caused because of provider execution
+
+2. Why we shoud delcare it?
+The RemoteException is an checked-exception unless we declare to throws our class methods cannot throw the exception
+
+3. Why is it Checked Exception?
+unless otherwise consumer will not be notified about the failure and cannot perform alternate of execution incase of failure
+
+#2. Write the implementation class for the SEI interface in which write the business logic we wanted to execute/apply for the request, the client has sent.
+There are rules in writing the implementation class
+	1. The implementation class we are writing must and should implement from SEI interface and override all the methods declared aspart of the interface
+	2. The implementation class methods may or may not declare to throw RemoteException.	
+		
+class TrainEnquiryImpl implements TrainEnquiry {
+	public String pnrStatus(String pnrNo) {
+		String status = null;
+		
+		if(pnrNo.equals("PNR001")) {
+			status = "WL/10";
+		}else if(pnrNo.equals("PNR002")) {
+			status = "CONFIRMED";
+		}else {
+			status = "RAC/2";
+		}
+		
+		return status;		
+	}
+	
+	public String trainStatus(String trainNo) throws RemoteException {
+		String status = null;
+		
+		if(trainNo == null || trainNo.trim().length() <=0) {
+			throw new RemoteException("trainNo is required");
+		}
+		if(trainNo.equals("001")) {
+			status = "ON-TIME";
+		}else if(trainNo.equals("002")) {
+			status = "DELAYED 10 MINS"
+		}else {
+			status = "CANCELED";
+		}
+		return status;	
+	}
+}	
+
+#3. We need to creating binding classes for exchanging the data between the consumer and provider from xml to object and viceversa
+To create binding classes we need to derive the structure of request/response xml by looking at webservice method, their parameters and returnTypes and based on message exchange format.
+	
+The programmer has to spend lot of time in developing the webservices as it takes more amount of time in manually computing the request/response xml structure for all the methods defined as part of SEI interface
+along with that writing these binding classes and parser classes are going to be complex and time consuming job
+	
+So jaxrpc api si implementation vendor has provided 2 tools to help us in developing webservices
+1. wscompile
+2. wsdeploy
+Now we need to use wscompile tool for generating the binding classes.
+	
+
+There are 2 tools provided for developing the webservices by jaxrpc api, si implementation vendor
+1. wscompile = used for generating the binding classes 
+2. wsdeploy = generating the required artifacts for making the webservices deployable
+
+#1. wscompile
+From the previous discussions we can understand we need to pass SEI Interface as an input to wscompile tool asking to generate binding classes.
+but wscompile tool doesnt take SEI interface as an input directly, rather we need to write the information about the sei interface in config.xml and pass it as an input to the wscompile
+
+we need to write config.xml and place it in WEB-INF/ directory
+
+config.xml
+------------
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<service
+		name="RailEnquiryService"
+		targetNamespace="http://www.irctc.co.in/railenquiry/service"
+		typeNamespace="http://www.irctc.co.in/railenquiry/types">
+		<interface name="com.railenquiry.service.RailEnquiry"
+			servantName="com.railenquiry.service.RailEnquiryImpl"
+			packageName="com.railenquiry.service.bindings"/>
+	</service>
+</config>
+
+
+in config.xml we need to configure
+serviceName
+targetNamespace
+typeNamespace
+interfaceName
+servantName
+packageName
+
+#generate binding classes
+jaxrpc api
+1. sei interface
+2. implementation class
+3. generate binding classes
+	
+si implementation vendor
+wscompile
+wsdeploy
+
+apache axis
+different set of tools
+--------------------------------------------------------------------------------------------
+
+why do we need binding classes?
+The consumer always inorder to access the provider will send the data in xml format, but the provider cannot process the data that is send by the consumer, the provider requires data in object format
+While dispatching the response also the provider returns object, but we need to send the data in xml format.
+To covert data from xml to object and object to xml format we need 2 things:
+1. binding classes = these classes are declared with attributes required for storing the data of an xml or converting the data into an xml
+2. parsers = contains logic for converting object into xml format and xml data into object format
+
+The programmer has to derive the structure of request/response xml by looing at webservice methods, parameters, returnType and message exchange format and should creating binding/parser classes.
+So if the programmer has to manually creating the binding/parser classes it becomes very difficult job and takes lot of time for developing webservices.
+	
+We need the support of tools to generate the binding classes and parser classes. The jaxrpc api has not provided any tools, rather it is left to the discretion of the vendors in providing the tools for generating the binding classes
+So that different vendors will comeup with their own algorithmic implementatation logic of converting xml to object and object to xml in their binding/parser classes.
+	
+So we have choice of many vendors and we choose the implementation vendor who is optimized and efficient in converting xml to object and viceversa
+
+We are working with jaxrpc si implementation vendor, so the jaxrpc si implementation vendor should provide tools for generating binding classes. The si implementation vendor provided 2 tools
+1. wscompile
+2. wsdeploy
+
+#1. we need to use wscompile for generating the binding classes and parsers. the wscompile tool generates binding classes/parses based on the methods we declared as part of sei interface.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+#3 generate the binding classes
+we cannot write the binding classes by our own, it is very complex to manually write the binding classes and parsers by looking at each webservice method of the SEI interface
+
+Instead we need support of the api itself.
+The jaxrpc api has standardized the development procedure in developing the service like
+1. write sei interface following the rules
+2. write implementation class based on the rules
+3. generate binding classes, but the process of generating the binding classes and tools required for generating the binding classes are not provided as part of the api, rather those are left to the descreation of the implementation vendor
+
+because different vendors might comeup with their own strategy of providing tools and generating optimized logic for performing object to xml and vice versa
+
+
+jaxrpc si
+|-#tools
+   |-binding classes 
+	 (attribtues with accessor methods to store the data of request/response xml)
+	 |-parsers
+	 (logic for converting xml into binding class object and object into xml format)
+
+apache axis
+|-#tools
+	|-binding classes
+	|-parsers
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

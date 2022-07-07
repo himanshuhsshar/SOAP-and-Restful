@@ -1,0 +1,95 @@
+What is an Message Exchange Format (MEF)?
+MEF indicates how does the data is formattted to be exchanged between the consumer and provider
+
+The Message Exchange Format is derived based on 2 attributes within the WSDL document
+1. style
+indicates the structure of the data
+	1.1 rpc
+	1.2 document
+
+2. use
+how does the data is represented in the elemnents of xml
+	2.1 encoded
+	2.2 literal
+	
+From the above we can derive 4 combinations which are 4 mef
+1. rpc-encoded
+2. rpc-literal
+3. document-encoded (not an message exchange format)
+4. document-literal
+
+The jaxrpc api based web services uses the default mef as "rpc-encoded"
+The jaxws api based web services uses the default mef as "document-literal"	
+	
+#1. endpoint
+#2. approach
+#3. mep (message exchange pattern)
+#4. mef (message exchange format)
+------------- we build webservice
+--------------------------------------------------------------------------------------------
+Which type of web service we are working on?
+We are working on
+jaxrpc api
+|-jaxrpc si implementation
+	|-servlet endpoint
+	|-contract-last
+	|-sync req/reply
+	|-rpc-encoded (mef)
+	
+	
+How to developer the webservice provider?
+#1. 
+From the programmatic standpoint of view, the interface acts as an contract between the consumer and provider, so we need to begin the development of the provider by writing an interface.
+The interface we are building at the provider is called "SEI Interface", SEI stands for Service Endpoint Interface it is called "SEI interface" because it is representing the web service we are building
+
+There are certain rules we need to follow while writing the SEI interface to be called it as "SEI interface"
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+WS-I organization
+(WebService inter-operability organization)
+There are 2 specifications are defined by WS-I organization
+1. BP1.0 
+2. BP1.1
+BP Stands for Basic Profile
+
+The above specifications provided set of standards that everyone should adopt in building applications to achieve inter-operability
+Java has provided 2 apis for building applications based on the above standards in support of web services:
+1. jaxrpc api
+2. jaxws api
+--------------------------------------------------------------------------------------------
+
+#1. Which type of web service are you working on?
+WS-I
+|-BP1.0
+	|-jaxrpc api
+		|-jaxrpc si implementation based webservices
+		|-apache axis
+		|-oracle weblogic server webservice implementation
+		|-ibm websphere server web service implementation
+(or)
+WS-I
+|-BP1.1
+	|-jaxws api
+		|-jaxws ri implementation
+		|-apache axis2
+		|-oracle weblogic server webservice implementation
+		|-ibm websphere server web service implementation
+		
+#2. Which endpoint based web service are you developing?
+What is endpoint?
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

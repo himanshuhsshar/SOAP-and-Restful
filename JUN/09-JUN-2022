@@ -1,0 +1,99 @@
+WS-I organization
+Web Service interoperability organization
+goal: It is a non-profit (opensource) organization established by the software gaints in the market, primarily focused for achieving interoperability
+
+All the big vendors in the market formed together in standardizing the the standards that has to be used by everyone in achieving interoperability
+The WS-I organization has standardized the standards to be used in achieving interoperability and has created/documented them in a specification document called BP 1.0
+BP = Basic Profile 
+BP 1.1 specification document
+
+What is a webservice?
+Any program that is written adhering (following) the rules defined as part of BP1.0 or BP1.1 specification document is called Web Services
+
+
+The WS-I organization has not provided any api/programing logic in building web services as part of BP1.0 or BP1.1 specification, it has only defined standards that people has to adopt in building web services.
+	
+Now developers has to adopt these standards and build software application to achieve inter-operability, the developer cannot build software applications adopting these standards to achieve interoperability, so the programming languages has to provide apis in support of building web services within their own language
+
+To build webservices in java platform, the sun microsystems has to provide apis
+There are 2 apis provided by sun microsystems in support of building web services in java language
+1. jaxrpc api = java api for xml remote procedural call (based on BP1.0)
+2. jaxws api = java api for xml web services (based on BP1.1)
+these apis inter uses lot of apis in building web services in java like
+1. servlet/ejb
+2. jaxp/jaxb
+3. saaj
+4. wsdl4j
+5. jaxr
+etc
+
+The jaxrpc and jaxws are apis, which means these are partial and contains only interfaces/abstract classes only, so to build web services we need implementation for these apis
+jaxrpc api
+1. jaxrpc si implementation (sun implementation)
+2. apache axis
+3. oracle weblogic webservices
+4. ibm websphere server web services
+
+jaxws api
+1. jaxws ri (reference implementation)
+2. apache axis2
+3. apache cxf
+4. oracle weblogic webservices
+5. ibm websphere server web services
+6. wso2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
