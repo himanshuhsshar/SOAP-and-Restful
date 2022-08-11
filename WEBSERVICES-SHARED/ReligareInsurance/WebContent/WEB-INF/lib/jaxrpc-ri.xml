@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+ SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+
+<webServices
+    xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/dd"
+    version="1.0"
+    targetNamespaceBase="http://www.railyatra.com/enquiry/service"
+    typeNamespaceBase="http://www.railyatra.com/enquiry/types"
+    urlPatternBase="/">
+
+    <endpoint
+        name="TrainEnquiry"
+        displayName="Train Enquiry Service"
+        description="Train Enquiry web service" 
+        wsdl="/WEB-INF/RailYatraService.wsdl"
+        interface="com.railyatra.services.TrainEnquiry"  
+        implementation="com.railyatra.services.TrainEnquiryImpl" 
+	     model="/WEB-INF/model-rpc-enc.xml.gz">
+	</endpoint>
+ 
+    <endpointMapping
+        endpointName="TrainEnquiry"
+        urlPattern="/trainEnquiry"/>
+
+</webServices>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:rit="http://www.religare.com/insurance/service"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PolicyManager"
+	targetNamespace="http://www.religare.com/insurance/service"
+	xmlns:ritps="http://www.religare.com/insurance/types">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.religare.com/insurance/types">
+			<xsd:complexType name="memberInfo">
+				<xsd:sequence>
+					<xsd:element name="fullName" type="xsd:string" />
+					<xsd:element name="age" type="xsd:int" />
+					<xsd:element name="gender" type="xsd:string" />
+					<xsd:element name="contact-no" type="xsd:string" />
+					<xsd:element name="email-address" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="enrollmentInfo">
+				<xsd:sequence>
+					<xsd:element name="plan-no" type="xsd:string" />
+					<xsd:element name="tenure" type="xsd:int" />
+					<xsd:element name="insurred-amount" type="xsd:float" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="policy">
+				<xsd:sequence>
+					<xsd:element name="policy-no" type="xsd:string" />
+					<xsd:element name="policy-holder-name" type="xsd:string" />
+					<xsd:element name="effective-from" type="xsd:date" />
+					<xsd:element name="valid-till" type="xsd:date" />
+					<xsd:element name="insurred-amount" type="xsd:float" />
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="PolicyManager_enroll">
+		<wsdl:part name="memberInfo" type="ritps:memberInfo" />
+		<wsdl:part name="enrollmentInfo" type="ritps:enrollmentInfo" />
+	</wsdl:message>
+	<wsdl:message name="PolicyManager_enrollResponse">
+		<wsdl:part name="result" type="ritps:policy" />
+	</wsdl:message>
+	<wsdl:portType name="PolicyManager">
+		<wsdl:operation name="enroll">
+			<wsdl:input message="rit:PolicyManager_enroll" />
+			<wsdl:output message="rit:PolicyManager_enrollResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PolicyManagerSOAPBinding" type="rit:PolicyManager">
+		<soap:binding style="rpc"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="enroll">
+			<soap:operation
+				soapAction="http://www.religare.com/insurance/service/enroll" />
+			<wsdl:input>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.religare.com/insurance/service" use="encoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.religare.com/insurance/service" use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PolicyManagerService">
+		<wsdl:port binding="rit:PolicyManagerSOAPBinding" name="PolicyManagerSOAPPort">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
