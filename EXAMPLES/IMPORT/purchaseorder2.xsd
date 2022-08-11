@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:et="http://ebay.in/sales/types" 
+xmlns:bst="http://bluedart.com/shipping/types" 
+targetNamespace="http://ebay.in/sales/types" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://bluedart.com/shipping/types" schemaLocation="purchaseorder.xsd"/>
+	<xs:element name="purchase-order" type="et:purchaseOrderType"/>
+	<xs:complexType name="purchaseOrderType">
+		<xs:sequence>
+			<xs:element name="order-items" type="et:orderItemsType"/>
+			<xs:element ref="bst:shipping-address"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="orderItemsType">
+		<xs:sequence>
+			<xs:element name="item" type="et:itemType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="item" type="et:itemType"/>
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="item-code" type="xs:string"/>
+			<xs:element name="quantity" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<et:purchase-order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ebay.in/sales/types file:///D:/WebServices/INCLUDE/purchaseorder2.xsd" xmlns:et="http://ebay.in/sales/types">
+	<et:order-items>
+		<et:item>
+			<et:item-code>IT1001</et:item-code>
+			<et:quantity>25</et:quantity>
+		</et:item>
+	</et:order-items>
+	<et:shipping-address>
+		<et:address-line1>Raun</et:address-line1>
+		<et:address-line2>Bhind</et:address-line2>
+		<et:city>Gwalior</et:city>
+		<et:state>Madhya Pradesh</et:state>
+		<et:zip>477335</et:zip>
+		<et:country>India</et:country>
+	</et:shipping-address>
+</et:purchase-order>
