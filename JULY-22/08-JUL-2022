@@ -1,0 +1,58 @@
+How to developer consumer?
+#1. create an java project and add all the jars
+#2. write config.xml (location of wsdl document)
+#3. run wscompile tool by passing config.xml as an input
+
+|-config.xml
+wscompile
+| -d src
+| -gen:client
+| -keep
+| -verbose
+
+#4. what it will generate
+
+wscompile
+|-Input/Output classes
+|-SEI Interface
+|-Stub
+|-Request/Response Struct
+|-SOAP Serializers/Builders
+|-Service
+
+#5. 
+write the client program (Test)
+SEI sei = Service.getPort();
+// invoke the provider methods using the reference of sei
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

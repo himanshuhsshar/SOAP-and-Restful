@@ -1,0 +1,124 @@
+How to build the stub-based consumer?
+#1. create a java project
+#2. write the config.xml
+		-> wsdlLocation
+#3. run the wscompile tool by passing config.xml as an input
+
+|-config.xml
+wscompile
+| -d src
+| -gen:client
+| -keep
+| -verbose
+
+what does it generates?
+Input/Output classes
+SEI Interface
+Stub
+Request/Response Struct
+Soap Serializers/Builders
+Service
+-------------------------------------------------------------------------------------------
+jaxws api
+- jaxws ri implementation
+- apache cxf
+
+jaxws ri implementation
+-----------------------
+ws-i
+|-bp-1.1
+	|-jaxws api
+		|-jaxws ri implementation
+			|-contract-last approach
+			|-servlet-endpoint
+			|-sync req/reply
+			|-document-literal
+			
+
+interface WeatherFinder extends java.rmi.Remote {
+	double getTemparature(long zip) throws RemoteException;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,53 @@
+How to develp the jaxws ri implementation based consumer?
+	
+#1. generate the consumer-side binding classes by using wsimport tool
+|-wsdl
+wsimport
+| -d src\main\java
+| -keep
+| -verbose
+
+Input/Output classes
+Binding classes
+SEI Interface
+Service
+
+The Stub class object will be created dynamically within the jvm memory by the Service class when we call Service.getPort() method.
+	
+	
+#2. Write the Test class in which instantiate the object of Stub class using Service hold it SEI Interface and invoke the methods for sending/receiving the request with provider.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

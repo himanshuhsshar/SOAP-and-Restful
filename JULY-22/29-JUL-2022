@@ -1,0 +1,56 @@
+How to develop Apache Cxf based provider?
+jaxws api
+|-apache cxf
+	|-contract-first approach
+	|-servlet endpoint
+	|-sync req/reply
+	|-document-literal
+	
+#1. write the wsdl document
+#2. generate binding classes
+The apache cxf implementation vendor has to provide tools for generating the binding classes
+There are 2 different tools provided for generating the binding classes
+1. java2wsdl
+2. wsdl2java
+
+|-wsdl document
+wsdl2java
+ | -o src\main\java
+   -fe JAXWS21
+	 -b jaxb
+
+wsdl2java
+|-sei
+|-implementation
+|-input/output classes
+|-binding classes (jaxb)
+	
+3. write implements class with business logic
+4. configure it as an jaxws:endpoint in spring bean configuration file #application-context.xml
+5. configure CXFServlet & ContextLoaderListener in web.xml
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,228 @@
+which type of webservice provider are we developing?
+we are working on
+ws-i
+|-bp-1.1
+	|-jaxws api
+		|-jaxws ri implementation
+			|-contract-last approach
+			|-servlet endpoint
+			|-sync req/reply
+			|-document-literal
+			
+1. From the world of java the sei interface acts as an contract between consumer and provider. so our development begins with writing an sei interface / defining the contract
+
+1. write the sei interface and annotation it with @WebService to indicate the interface as WebService interface
+2. declare any methods as part of the sei interface.
+	2.1 by default all the methods we declared as part of sei interface becomes webservice methods
+	2.2 if we want to expose only few of the methods as webservice methods, then annotate only those methods with an annotation called @WebMethod
+3. The name of the methods can be anything and may take parameters and returnsType. The parameters and returnTypes are must and should be complaint with JAXB Mapping Types
+4. The methods need not declare to throw any exception, because jaxws api has introduced an own exception class WebServiceException and it is an unchecked exception.
+		
+@WebService(name="WeatherFinder", targetNamespace="http://google.com/weather/service")
+interface WeatherFinder {	
+	@WebMethod
+	@WebResult(name="temparature", targetNamespace="http://google.com/weather/types")
+	double getTemparature(@WebParam(name="zipcode", targetNamespace="http://google.com/weather/types") int zipCode);
+}
+
+#2. write the implementation class for the sei interface with relevant business logic to be executed upon receiving the request from the consumer
+	
+There are certain rules we need to follow in writing the implementation class
+1. The implementation class need not implement from SEI interface, if we want we can do but not necessarily required.
+To identify the implementation class is providing implementation for which interface we need to write @WebService(endpointInterface="fqnSEIInterface")
+2. provide implementation for all the methods declared as part of the sei interface
+3. make sure the method we are implementing should be public access modifier
+	
+@WebService(endpointInterface="com.weather.service.WeatherFinder", serviceName="WeatherFinderService")	
+class WeatherFinderImpl {
+	public double getTemparature(int zipCode) {
+		return 393;
+	}
+}	
+
+In case of jaxws api based webservices, the sei interface is optional at provider side, and we can directly start development of webservice with implementation class itself
+	
+	
+In case if we dont have an interface defined for our provider, then write directly implementation class and write all the annotations on the implementation class itself
+	
+#3. generate binding classes
+The jaxws api ri implementation vendor has provided 2 tools for generating the binding classes.
+1. wsgen = webservice generator, used for generating binding classed for the sei interface provided.
+2. wsimport = webservice import tool, imports the wsdl document in generating the binding classes
+
+since we are working on contract-last approach we need to use wsgen tool for generating the binding classes.
+
+How to generate the binding classes, how to run the tool?
+|-impl
+wsgen
+| -d src
+| -keep
+| -verbose
+| -cp target/classes
+
+What are the classes the tool is going to generate?	
+|-impl
+wsgen
+|-binding classes
+
+
+#4. bind the webservice with an url pattern by writing webservice deployment descriptor file.
+	
+sun-jaxws.xml
+<endpoing name="weatherFinder"
+	implementation="WeatherFinderImpl"
+	urlPattern="/weatherFinder"/>
+	
+#5. web.xml
+
+<listener>
+	<listener-class>WSServletContextListener</listener-class>
+</listener>
+<servlet>
+	<servlet-name>weatherFinder</servlet-name>
+	<servlet-class>WSServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>weatherFinder</servlet-name>
+	<url-pattern>/weatherFinder</url-pattern>
+</servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

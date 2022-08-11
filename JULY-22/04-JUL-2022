@@ -1,0 +1,302 @@
+wsdl document
+---------------
+wsdl stands for webservice description language, and it used for documenting the information about the provider. wsdl is also an xml type document, it has its own schema defined based on which we need to write the wsdl document.
+an wsdl document containers total 6 elements, which are called as 6 sections of the wsdl document.
+The root element of the wsdl document is definitions
+1. definitions
+under the definitions element there are 5 elements are there which are 5 sections of the wsdl
+	1. types
+	2. messages
+	3. portType
+	4. bindings
+	5. service
+			- port
+			
+interface PolicyManager extends java.rmi.Remote {
+	Policy enroll(MemberInfo memberInfo, EnrollmentInfo enrollmentInfo) throws RemoteException;
+}			
+
+PolicyManager.wsdl
+--------------------
+<?xml version="1.0" encoding="utf-8"?>
+<definitions>
+
+</definitions>
+
+#1. Types section
+The types section of the wsdl document describes the parameter types and the return types of the webservice method that consumer should pass as an input while invoking/talking to the provider or the return values returned from the webservice provider methods
+	
+<?xml version="1.0" encoding="utf-8"?>
+<definitions>
+	<types>
+		<xs:schema targetNamespace="http://www.lic.org/insurance/types">
+			<xs:complexType name="MemberInfo">
+				<xs:sequence>
+					<xs:element name="fullname" type="xs:string"/>
+					<xs:element name="dob" type="xs:date"/>
+					<xs:element name="gender" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="EnrollmentInfo">
+				<xs:sequence>
+					<xs:element name="plan-no" type="xs:string"/>
+					<xs:element name="tenure" type="xs:int"/>
+					<xs:element name="insurred-amount" type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Policy">
+				<xs:sequence>
+					<xs:element name="policy-no" type="xs:string"/>
+					<xs:element name="policy-holder-nm" type="xs:string"/>
+					<xs:element name="tenure" type="xs:int"/>
+					<xs:element name="insurred-amount" type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</types>
+</definitions>
+
+#2. messages
+The messages section of the wsdl document talks about the total inputs and the outputs of a webservice method. For each webservice method there are 2 messages
+1. input message = the input message represents all the inputs we need to send while accessing the provider
+
+2. output message = the output message represents the total outputs that are returned by the provider as part of the response
+
+every message contains parts representing parameter types or returnTypes of an webservice method.
+	
+	
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:lit="http://www.lic.org/insurance/types">
+	<types>
+		<xs:schema targetNamespace="http://www.lic.org/insurance/types" >
+			<xs:complexType name="MemberInfo">
+				<xs:sequence>
+					<xs:element name="fullname" type="xs:string"/>
+					<xs:element name="dob" type="xs:date"/>
+					<xs:element name="gender" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="EnrollmentInfo">
+				<xs:sequence>
+					<xs:element name="plan-no" type="xs:string"/>
+					<xs:element name="tenure" type="xs:int"/>
+					<xs:element name="insurred-amount" type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Policy">
+				<xs:sequence>
+					<xs:element name="policy-no" type="xs:string"/>
+					<xs:element name="policy-holder-nm" type="xs:string"/>
+					<xs:element name="tenure" type="xs:int"/>
+					<xs:element name="insurred-amount" type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</types>
+	
+	<message name="PolicyManager_enroll">
+		<part name="memberInfo" type="lit:MemberInfo"/>
+		<part name="enrollmentInfo" type="lit:enrollmentInfo"/>
+	</message>
+	
+	<message name="PolicyManager_enrollResponse">
+		<part name="result" type="lit:Policy"/>
+	</message>
+</definitions>	
+
+
+#3. portType
+portType of the wsdl document represents the provider / sei interface of the provider, so that consumer by looking at the portType can understand the methods and the parameters and returnType of the web service provider
+
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:lit="http://www.lic.org/insurance/types" targetNamespace="http://www.lic.org/insurance/service" xmlns:lis="http://www.lic.org/insurance/service">
+	<types>
+		<xs:schema targetNamespace="http://www.lic.org/insurance/types" >
+			<xs:complexType name="MemberInfo">
+				<xs:sequence>
+					<xs:element name="fullname" type="xs:string"/>
+					<xs:element name="dob" type="xs:date"/>
+					<xs:element name="gender" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="EnrollmentInfo">
+				<xs:sequence>
+					<xs:element name="plan-no" type="xs:string"/>
+					<xs:element name="tenure" type="xs:int"/>
+					<xs:element name="insurred-amount" type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Policy">
+				<xs:sequence>
+					<xs:element name="policy-no" type="xs:string"/>
+					<xs:element name="policy-holder-nm" type="xs:string"/>
+					<xs:element name="tenure" type="xs:int"/>
+					<xs:element name="insurred-amount" type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</types>
+	
+	<message name="PolicyManager_enroll">
+		<part name="memberInfo" type="lit:MemberInfo"/>
+		<part name="enrollmentInfo" type="lit:enrollmentInfo"/>
+	</message>
+	
+	<message name="PolicyManager_enrollResponse">
+		<part name="result" type="lit:Policy"/>
+	</message>
+	
+	<portType name="PolicyManager">
+		<operation name="enroll">
+			<input message="lis:PolicyManager_enroll"/>
+			<output message="lis:PolicyManager_enrollResponse"/>
+		</operation>		
+	</portType>	
+</definitions>	
+
+abstract wsdl:
+if a wsdl document contains only types, messages and portType then it is called "abstract wsdl" document. by looking at the types section or messages or portType we can only understand what are all the things are part of the provider, but these will not describe the information pertaining to accessing the provider.
+	
+For eg.. by looking at the above sections the consumer will not know
+1. which transport protocol to be used
+2. which binding protocol to be used
+3. what the message exchange format in which the data should be wrapped into to pass it as an input to the provider
+is not described by any of the above 3 sections, so it is called abstract wsdl
+
+#Concreate wsdl
+along with types, messages and portType if the wsdl document carries or describes binding and service sections as well then it is called "concreate wsdl" document, because those 2 sections describes the information pertaining to accessing the provider
+
+#4. bindings
+The bindings section of the wsdl document describes the details of how to access an webservice provider
+it provides the details like
+1. Transport protocol to be used
+2. Binding procotol
+3. Message exchange format to be used for sending/receiving the data for each method of the webservice
+
+<bindings name="PolicyManagerSOAPBinding" type="lis:PolicyManager">
+	<soap:binding transport="...soap/http" style="rpc"/>
+	<operation name="enroll">
+		<soap:operation soapAction="tns:enroll"/> #remember
+		<input>
+			<soap:body use="encoded"/>
+		</input>
+		<output>
+			<soap:body use="encoded"/>
+		</output>
+	</operation>
+</bindings>
+
+#5. service
+service acts as an factory for accessing the objects of the port
+port attaches the address location where the provider is available for accessing.
+	
+<service name="PolicyManagerService">
+	<port name="PolicyManagerSOAPPort" bindings="lis:PolicyManageSOAPBinding">
+		<soap:address location="http://localhost:8081/PolicyApp/policyManager"/>
+	</port>
+</service>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

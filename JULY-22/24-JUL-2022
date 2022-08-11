@@ -1,0 +1,22 @@
+apache cxf
+
+The apache cxf is the third-generation web service engine provided by the apache team. apache cxf is fully complaint with jaxws api. There are lot of features are supported by apache cxf
+1. supports/complaints with jaxws api (JAXWS 2.0)
+2. apache cxf supports ws-* specification standards in build the soap services like
+		2.1 WS-Security
+		2.2 WS-SecurityPolicy
+		2.3 WS-Trust
+		2.4 WS-Addressing
+		2.5 WS-SecureConversation
+3. apache cxf supports multiple transports and binding protocols
+	Transports: HTTP, JMS, 
+	Binding Protocols: SOAP, Pure XML
+4. apache cxf supports multiple front-ends in building web services
+		- soap endpoint
+		- restful webservices		
+5. apache cxf supports multiple databinding libraries
+		jaxb 2.0, apache xml beans, service data objects, JiBX, Aegis
+		
+6. apache cxf supports open api specification (restful services documentation)		
+7. Rich Tool support in developing the soap services are available
+8. apache cxf has tight integration with spring framework in building soap services

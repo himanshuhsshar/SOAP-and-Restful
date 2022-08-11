@@ -1,0 +1,70 @@
+#1. SEI Interface
+#2. Implementation class
+	
+#3. write /WEB-INF/config.xml 
+serviceName=""
+targetNamespace=""
+typeNamespace=""
+interfaceName=""
+servantName=""
+
+#4. generate the binding classes
+wscompile -d src -gen:server -keep -verbose -cp build\classes -model model-rpc-enc.xml.gz WebContent\WEB-INF\config.xml
+|-RequestStruct/ResponseStruct
+|-RequestStruct/ResponseStruct SOAPSerializers/Builders
+|-Tie
+|-wsdl
+|-model
+
+#5. move the wsdl and model into WEB-INF directory
+
+#6. bind the webservice with an url pattern by writing webservice deployment descriptor file
+/WEB-INF/jaxrpc-ri.xml
+<endpoint name=""
+	interface=""
+	implementation=""
+	wsdl=""
+	model=""/>
+<endpointMapping name=""
+	urlPattern=""/>
+	
+#7. we need additional deployment configuration files required for deploying the webservice
+7.1 export the project as a war file
+7.2 run the wsdeploy tool by passing the war as an input
+	wsdeploy -o target.war RailYatra.war
+7.3 extract the project and copy the additionally generated configuration files into the eclipse project so that we can deploy the project directly from IDE
+7.4 copy jaxrpc-ri-runtime.xml && web.xml into /WEB-INF/ directory of the project
+
+#8. deloy the application into tomcat server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

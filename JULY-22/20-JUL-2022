@@ -1,0 +1,124 @@
+How to write the wsdl document while working with document-literal message exchange format?
+In case of document-literal, the data that is required as an input for the provider would be send as an xml-document directly, we dont need to wrap the data into methodname element as a root and parameternames as subsequent elements and attribute of the parameterType as child elements like rpc-encoded.
+	
+So while working with document-literal we can only have one parameter for our webservice method, we cannot take multiple parameters since the xml document in the soap-body becomes non-wellformed
+
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:uet="http://upstock.com/exchange/types">
+  <types targetNamespace="http://upstock.com/exchange/types">
+		<xs:element name="buy-request">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="stock-name" type="xs:string"/>
+					<xs:element name="quantity" type="xs:int"/>
+					<xs:element name="price" type="xs:float"/>
+					<xs:element name="account-no" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>			
+		</xs:element>
+		<xs:element name="allotment-info">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="allotment-no" type="xs:string"/>
+					<xs:element name="request-placed-date" type="xs:date"/>
+					<xs:element name="status" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+	</types>
+	<message name="buyStock">
+		<part name="input" element="uet:buy-request"/>
+	</message>
+	<message name="buyStockResponse">
+		<param name="output" element="uet:allotment-info"/>
+	</message>
+	<portType name="StockExchange">
+		<operation name="buyStock">
+			<input message=""/>
+			<output message=""/>
+		</opertion>
+	</portType>
+</definitions>
+--------------------------------------------------------------------------------------------
+How to develop the webservice using contract-first approach?
+#1. write the wsdl document
+#2. generate binding classes by using wsimport tool
+
+|-wsdl
+wsimport
+| -d src
+| -keep
+| -verbose
+
+wsimport
+|-sei
+|-input/output
+|-jaxb binding classes
+----------------------------------------
+#4. write the implementation class
+#5. bind the webservice with an url pattern to be exposed by writing webservice deployment descriptor file
+sun-jaxws.xml
+<endpoint name=""/>
+
+#5. write web.xml with servlet and listener being configured
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
