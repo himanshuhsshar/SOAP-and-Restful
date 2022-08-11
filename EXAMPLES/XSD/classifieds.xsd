@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="classifieds" type="classifiedsType"/>
+	<xs:group name="propertyElementGroup">
+		<xs:sequence>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="facing" type="xs:string"/>
+			<xs:element name="rental-amount" type="xs:float"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="classifiedsType">
+		<xs:sequence>
+			<xs:element name="flat" type="flatType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="house" type="houseType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="flatType">
+		<xs:sequence>
+			<xs:group ref="propertyElementGroup"/>
+			<xs:element name="square-feet" type="xs:int"/>
+			<xs:element name="floor" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="houseType">
+		<xs:sequence>
+			<xs:group ref="propertyElementGroup"/>
+			<xs:element name="no-of-floors" type="xs:int"/>
+			<xs:element name="square-yards" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

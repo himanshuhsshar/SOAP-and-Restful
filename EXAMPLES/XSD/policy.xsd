@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="policy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="policy-no" type="xs:string"/>
+				<xs:element name="policy-holder-name" type="xs:string"/>
+				<xs:element name="policy-type" type="xs:string"/>
+				<xs:element name="tenure" type="xs:int"/>
+				<xs:element name="premiun-amount" type="xs:string"/>
+				<xs:element name="insurred-amount" type="xs:float"/>
+				<xs:element name="nominee">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="fullname" type="xs:string"/>
+							<xs:element name="dob" type="xs:date"/>
+							<xs:element name="gender" type="xs:string"/>
+							<xs:element name="relationship" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

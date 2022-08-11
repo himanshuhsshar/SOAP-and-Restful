@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classifieds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/WebServices/XSD/classifieds.xsd">
+	<flat>
+		<type>2BHK</type>
+		<facing>Ease</facing>
+		<rental-amount>18000</rental-amount>
+		<square-feet>1400</square-feet>
+		<floor>2</floor>
+	</flat>
+	<house>
+		<type>villa</type>
+		<facing>North-East</facing>
+		<rental-amount>75000</rental-amount>
+		<no-of-floors>2</no-of-floors>
+		<square-yards>40000</square-yards>
+	</house>
+</classifieds>

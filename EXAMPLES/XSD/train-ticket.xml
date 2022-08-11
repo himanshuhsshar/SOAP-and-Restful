@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<train-ticket coach-no="s1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/WebServices/XSD/train-ticket.xsd">
+	<train-no>t9309</train-no>
+	<source>hyderabad</source>
+	<destination>bangalore</destination>
+	<journey-date>2022-07-30</journey-date>
+	<amount>1000</amount>
+	<passengers>
+		<passenger berth-no="23">
+			<fullname>peter</fullname>
+			<age>25</age>
+			<gender>Male</gender>
+		</passenger>
+	</passengers>
+</train-ticket>

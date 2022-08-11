@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 sp1 (http://www.altova.com) by End User (free.org) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="passport" type="passportType"/>
+	<xs:complexType name="passportType">
+		<xs:sequence>
+			<xs:element name="passport-no" type="xs:string"/>
+			<xs:element name="fullname" type="xs:string"/>
+			<xs:element name="dob" type="xs:date"/>
+			<xs:element name="gender" type="genderType"/>
+			<xs:element name="expiry-date" type="xs:date"/>
+			<xs:element name="issued-date" type="xs:date"/>
+			<xs:element name="issued-authority" type="xs:string"/>
+			<xs:element name="address" type="addressType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="addressType">
+		<xs:sequence>
+			<xs:element name="address-line1" type="xs:string"/>
+			<xs:element name="address-line2" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="zipType"/>
+			<xs:element name="country" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="genderType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="male"/>
+			<xs:enumeration value="female"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="zipType">
+		<xs:restriction base="xs:int">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

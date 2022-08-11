@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="train-ticket" type="trainTicketType"/>
+	<xs:complexType name="trainTicketType">
+		<xs:sequence>
+			<xs:element name="train-no" type="xs:string"/>
+			<xs:element name="source" type="xs:string"/>
+			<xs:element name="destination" type="xs:string"/>
+			<xs:element name="journey-date" type="xs:date"/>
+			<xs:element name="amount" type="xs:float"/>
+			<xs:element name="passengers" type="passengersType"/>
+		</xs:sequence>
+		<xs:attribute name="coach-no" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="passengersType">
+		<xs:sequence>
+			<xs:element name="passenger" type="passengerType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="passengerType">
+		<xs:sequence>
+			<xs:element name="fullname" type="xs:string"/>
+			<xs:element name="age" type="xs:int"/>
+			<xs:element name="gender" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="berth-no" type="xs:int" use="required"/>
+	</xs:complexType>
+</xs:schema>

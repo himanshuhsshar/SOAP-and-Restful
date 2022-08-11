@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<passport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/WebServices/XSD/passport.xsd">
+	<passport-no>P01234</passport-no>
+	<fullname>Himanshu Sharma</fullname>
+	<dob>1998-01-07</dob>
+	<gender>male</gender>
+	<expiry-date>2025-01-23</expiry-date>
+	<issued-date>2020-01-03</issued-date>
+	<issued-authority>Hyderabad Passport Office</issued-authority>
+	<address>
+		<address-line1>12 Avenue</address-line1>
+		<address-line2>Parklane Street</address-line2>
+		<city>Hyderabad</city>
+		<state>TamilNadu</state>
+		<zip>86976</zip>
+		<country>India</country>
+	</address>
+	
+</passport>
