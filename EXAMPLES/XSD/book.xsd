@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="book" type="bookType"/>
+	<xs:element name="no-of-books" type="xs:int"/>
+	<xs:complexType name="bookType">
+		<xs:sequence>
+			<xs:element name="isbn" type="xs:string"/>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="author" type="authorType"/>
+			<xs:element name="publisher" type="publisherType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="authorType">
+		<xs:sequence>
+			<xs:element name="author-name" type="xs:string"/>
+			<xs:element name="dob" type="xs:date"/>
+			<xs:element name="gender" type="xs:string"/>
+			<xs:element ref="no-of-books"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="publisherType">
+		<xs:sequence>
+			<xs:element name="publisher-name" type="xs:string"/>
+			<xs:element name="est-date" type="xs:date"/>
+			<xs:element ref="no-of-books"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

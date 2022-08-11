@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:uts="http://upstock.com/trading/service"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="StockManager"
+	targetNamespace="http://upstock.com/trading/service"
+	xmlns:utt="http://upstock.com/trading/types">
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://upstock.com/trading/types">
+			<xsd:element name="buyQuote">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="stockName" type="xsd:string" />
+						<xsd:element name="quantity" type="xsd:string" />
+						<xsd:element name="price" type="xsd:float" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="receipt">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="orderNo" type="xsd:string" />
+						<xsd:element name="stockName" type="xsd:string" />
+						<xsd:element name="status" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="buyStock">
+		<wsdl:part element="utt:buyQuote" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="buyStockResponse">
+		<wsdl:part element="utt:receipt" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="StockManager">
+		<wsdl:operation name="buyStock">
+			<wsdl:input message="uts:buyStock" />
+			<wsdl:output message="uts:buyStockResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="StockManagerSOAPBinding"
+		type="uts:StockManager">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="buyStock">
+			<soap:operation
+				soapAction="http://upstock.com/trading/service/buyStock" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="StockManagerService">
+		<wsdl:port binding="uts:StockManagerSOAPBinding"
+			name="StockManagerSOAPPort">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

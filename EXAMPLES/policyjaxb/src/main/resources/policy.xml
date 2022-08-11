@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lip:policy xmlns:lip="http://www.lic.org/insurance/policy"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lic.org/insurance/policy policy.xsd ">
+	<lip:policyNo>P0102012</lip:policyNo>
+	<lip:tenure>12</lip:tenure>
+	<lip:insurredAmount>120000</lip:insurredAmount>
+	<lip:memberInfo>
+		<lip:fullName>Himanshu Sharma</lip:fullName>
+		<lip:dob>1998-07-01</lip:dob>
+		<lip:gender>Male</lip:gender>
+		<lip:aadharNo>2345 6743 5678</lip:aadharNo>
+	</lip:memberInfo>
+	<lip:plan>
+		<lip:planNo>P00001</lip:planNo>
+		<lip:planName>Surakhsa</lip:planName>
+		<lip:planType>Risk Coverage</lip:planType>
+		<lip:minEligibilityAge>18</lip:minEligibilityAge>
+		<lip:maxEligibilityAge>65</lip:maxEligibilityAge>
+		<lip:minInsurredAmount>100000</lip:minInsurredAmount>
+	</lip:plan>
+</lip:policy>

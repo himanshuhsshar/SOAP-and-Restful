@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="account" type="accountType"/>
+	<xs:complexType name="accountType">
+		<xs:all>
+			<xs:element name="account-no" type="xs:string"/>
+			<xs:element name="account-holder-name" type="xs:string"/>
+			<xs:element name="account-type" type="xs:string"/>
+			<xs:element name="mobile-no" type="xs:string"/>
+			<xs:element name="email-address" type="xs:string"/>
+			<xs:element name="branch-code" type="xs:string"/>
+			<xs:element name="balance" type="xs:float"/>
+		</xs:all>
+	</xs:complexType>
+</xs:schema>

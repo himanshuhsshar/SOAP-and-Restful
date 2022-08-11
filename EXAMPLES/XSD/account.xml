@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<account xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/WebServices/XSD/account.xsd">
+	<account-no>ac3678</account-no>
+	<account-holder-name>Himanshu Sharma</account-holder-name>
+	<account-type>Savings</account-type>
+	<mobile-no>8109465904</mobile-no>
+	<balance>56789</balance>
+	<email-address>himanshu.hs951@gmail.com</email-address>
+	<branch-code>9374</branch-code>
+</account>
