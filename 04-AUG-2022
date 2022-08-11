@@ -1,0 +1,7 @@
+we cannot apply jee security mechanism for securing the soap services, for enforcing security for soap services we have ws-security specification, which is part of ws-* specification initiate
+
+ws-security works in conjuction with ws-securitypolicy specification.
+	
+ws-security specification has defined security markup	that should be used for exchaning the authentication data between consumer and provider
+ws-securitypolicy = is a language through which the provider express the policies/ security constriants being imposed in accessing the provider
+
