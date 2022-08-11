@@ -1,0 +1,189 @@
+jaxp stands for java api for xml parsing, it is an api used for reading/writing the data from an xml document.
+There are several implementations are available for jaxp api
+1. xerces2
+2. crimpson
+3. oraclev2 parser
+4. xml4j
+
+There are 2 universal methodologies are there in reading/writing the xml documents
+1. sax
+2. dom
+jaxp support both sax and dom methodologies in processing the xml and has provided necessary api classes for working with them
+
+#1. sax 
+sax stands for simple api for xml. sax is an methodology that is used for reading the contents of an xml. sax is an sequential access model that supports reading the xml from top to the bottom.
+sax uses event-driven mechanism in reading the contents of an xml
+
+event-based processing model is used for building decoupled component based application development. In event based technic there are 4 actors are there
+1. source = the originator of events, upon performing an action or an operation source will trigger the event
+2. event = event is an object encapsulated with the data and the source who has triggered the event
+3. handler = knows how to perform operation for an event
+4. listener = decouples source from handler, listener always listens for an event from source, upon receiving an event, it identifies appropriate handler class and invokes an corresponding handler method which can process the event.
+	
+sax uses the event-driven processing model, so here
+1. source = the xml document which contains the data that is required for performing operation. For different data we want to perform different type of operations, so there are different types of events published from the source based on the data being read from the source.
+	
+2. event = is nothing but the data that has been read from the xml, representing it different types of events are published like
+	1. start document
+	2. end document
+	3. start element
+	4. end element
+	5. data
+
+3. handler = is a component we need to write with different handler methods containing logic for performing operation based on the events that are published
+
+4. listener = parser who reads the data from xml and invokes the methods on the handler class.
+	
+#we want to print the contents of an xml, how can we perform using jaxp api sax methodology?
+source
+------
+po.xml
+-------
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>ic0393</item-code>
+			<quantity>29</quantity>
+		</item>
+		<item>
+			<item-code>ic0823</item-code>
+			<quantity>9</quantity>
+		</item>
+	</order-items>
+	<shipping-address>
+		<address-line1>George St, 2nd lane</address-line1>
+		<address-line2>202</address-line2>
+		<city>Delaware</city>
+		<state>Ohio</state>
+		<zip>9383</zip>
+		<country>USA</country>
+	</shipping-address>
+</purchase-order>
+	
+class PrintXmlHandler extends DefaultHandler {
+	public void startDocument() {
+		sop("start document");
+	}
+	public void endDocument() {
+		sop("end document");
+	}
+	public void startElement(String namespaceURI, String qName, String localName, Attribute[] attributes) {
+		sop("<"+localName+">");
+	}
+	public void endElement(String namespaceURI, String qName, String localName) {
+		sop("</"+localName+">");
+	}
+	public void characters(char[] doc, int startIndex, int offset) {
+		String data = new String(doc, startIndex, offset);
+		sop(data);
+	}
+}	
+	
+class Test {
+	public static void main(String[] args) {
+		SAXParserFactory factory = SAXParserFactory.newInstance();
+		SAXParser saxParser = factory.newSAXParser();
+		saxParser.parse(new File("d:/po.xml"), new PrintXmlHandler());
+	}
+}	
+-------------------------------------------------------------------------------------------	
+class GetItemCountHandler extends DefaultHandler {
+	private int noOfItems;
+	
+	public void startDocument() {
+		noOfItems=0;
+	}
+	
+	public void startElement(String uri, String localName, String qName, Attributes attributes) {
+		if(qName.equals("item")) {
+			noOfItems++;
+		}
+	}
+	
+	public int getNoOfItems() {
+		return this.noOfItems;
+	}
+}
+GetItemCountHandler handler = new GetItemCountHandler();
+parser.parse(new File("d:\\po.xml"), handler);
+int c = handler.getNoOfItems();
+sop(c);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

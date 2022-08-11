@@ -1,0 +1,112 @@
+How to programmatically validate the xml document before reading the data and performing operation?
+In order to validate an xml we need an xsd document.
+jaxp api has provided relevant api class to validate the contents of an xml against an xsd document
+
+1.0, 1.2	
+	
+ xsd(1.0, 1.2)	
+	|
+SchemaFactory	
+Schema = a schema object represents an xsd document	
+Validator
+	|-void validate(new File("d:\\po.xml"));
+if the given xml is not valid then it throws exception
+
+SchemaFactory sfactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_URI);
+Schema schema = sfactory.newSchema("d:\\po.xsd");
+Validator validator = schema.newValidator();
+
+validator.validate(new File("d:\\po.xml"));
+
+// then parse
+--------------------------------------------------------------------------------------------
+jaxb api
+jaxb stands for java architecture for xml binding, its an api that allows the programmers to read the data of an xml document interms of objects
+
+XML Binding technology / methodology has been introduced that has provided set of rules and guideliness that should be followed in reading the data of an xml document into objects 
+
+The developers has to adopt the XML Binding methodology in implementing programs in reading the data from xml interms of objects, which seems to be high complex.
+So programming languages has to provide api helping the developer in reading the data from xml using that methodology sophisticatedly
+
+But java has not provided any api initially supporting reading the data from xml document based on XML binding technology
+That is where lot of third-party vendors provided various different libraries allowing the developers to read the contents of an xml interms of objects like
+1. xml beans
+2. castor
+3. jibx
+4. javolution
+
+due to the huge popularity and massive success of xml binding technology and the libraries available in the market, later on sub microsystems has released the support of xml binding technogy by provided jaxb api
+
+jaxb api
+|-jaxb ri
+|-jaxme
+
+jaxb api = shipped as part of jdk 1.5
+jdk10 = they stopped shipping as part of the jdk distribution and we need add these api/implementation libraries to work with jaxb api
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

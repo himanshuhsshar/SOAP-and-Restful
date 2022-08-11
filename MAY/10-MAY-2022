@@ -1,0 +1,90 @@
+include
+to encourage modularity we can break an xsd into multiple xsds and we can include one xsd inside the another one when both of them has the same namespace
+
+import
+to reuse the xsd provided by third-party or external provides within our xsd where the namespaces are different, then we use import
+	
+w3c.org people has defined the structure of an xsd document in another xsd which has the namespace www.w3.org/2001/XMLSchema, so while referring the elements of the xsd we need to use qualified name, so we assign the shortname for the above namespace and use qualified names of xsd elements as below.
+	
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</xsd:schema>
+--------------------------------------------------------------------------------------------
+Java has provided 2 different apis in working with processing the xml documents.
+1. jaxp api
+2. jaxb api
+
+#1. jaxp api
+jaxp stands for java api for xml parsing/processing which is used for reading/writing the contents of xml document. jaxp is an api, apis are not complete they provide only interfaces/abstract classes to work with api we need implementations there are several implementations are there
+jaxp api
+1. xerces2
+2. xml4j
+3. oraclev2parser
+etc
+
+out of the above implementations the xerces2 is the default implementation shipped as part of jdk
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

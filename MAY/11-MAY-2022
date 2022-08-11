@@ -1,0 +1,141 @@
+The sun microsystems as part of the java platform has provided 2 apis for processing/parsing the contents of an xml document
+1. jaxp api
+2. jaxb api
+
+#1. jaxp api
+jaxp stands for java api for xml parsing/processing which is used for reading/writing the contents of an xml document in java programming language. jaxp is an api which is partial and we have several vendor implementations are available as below.
+	1. xerces2
+	2. crimpson
+	3. oracle v2 parser
+	4. xml4j
+	
+as part of the jdk4+ distribution the xerces2 is the default implementation being shipped, so while working with jdk4+ we dont need to add any libraries to our project
+
+In general there are 2 ways of processing the contents of an xml are there
+1. sax (simple access for xml)
+2. dom (document object model)
+the sax and dom are universal access methodologies available for reading/writing the contents of an xml irrespective of programming language
+jaxp api supports both the technics of processing the xml document
+
+#1. sax methodology
+sax stands for simple access for xml api, it is used for parsing the contents of an xml document. 
+sax is an sequential access model, that allows us to read the contents of an xml from top to bottom. sax uses even-driven mechanism in reading the contents of an xml document. sax consumes less amount of memory in processing the contents of an xml when compared with dom.
+	
+What is event-driven mechanism?
+always in an event-driven technic there are 4 actors are there
+1. source = source is the originator of events, we will perform an action or operation on source asking him to perform operation within our application.
+2. event = is a class object encapsulated with the information about the source who published the event along with data that should be passed as an input to the Handler to perform operation
+3. handler = is a class that contains eventhandler methods which takes event as an input and perform relevant operation 
+4. listener = is a class always listens for an event from the source, based on the type of the event, he will identify appropriate eventhandler method on a handler class invokes it by passing the event as an input
+	
+The source dont know who is the Handler class performing the operation or the handler dont know who is the person who called him. neither of these classes dont know each other by communicates by publishing events, through which our components of our application becomes completely loosely coupled.
+So we can build loosely coupled application by using event-driven processing model	
+
+How does sax works based on event-driven model?
+when it comes to sax model here also we have 4 actors
+1. source
+The xml document itself acts as an source as we need data as an input to perform operation. for different types of data we need to perform different operations, so based on the data the sax engine read from top to the bottom sequentially it triggers an event for eg..
+	
+2. event types	
+	1. START DOCUMENT
+	2. END DOCUMENT
+	3. START ELEMENT
+	4. END ELEMENT
+	5. DATA
+etc
+
+3. Handler
+write an handler component which has various different eventhandler methods for processing each type of event to perform different operations
+
+
+4. parser 
+acts as an Listener in publishing the events from the xml and triggers an appropriate method on the handler class by passing the event data as an input asking to perform operation.
+	
+The above mechanism of reading the data from an xml document is support by jaxp api and has provided relevant classes for processing.	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

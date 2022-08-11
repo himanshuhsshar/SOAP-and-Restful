@@ -1,0 +1,70 @@
+There are 2 types of operations are there
+1. one-time operations
+To perform one-time operations jaxb as part of its distribution has provided 2 tools
+	1. xjc = xml schema to java compiler
+	2. schemagen = schema generator
+
+2. runtime operations
+	1. unmarshalling
+	2. marshalling
+	3. in-memory validation
+jaxb api has provided relevant api classes through which we need to perform runtime operations
+
+policy.xsd
+------------
+<xs:schema targetNamespace="http://lic.org/policies/types" xmlns:lpt="http://lic.org/policies/types">
+	<xs:element name="policy" type="lpt:policyType"/>
+	<xs:complexType name="policyType">
+		<xs:sequence>
+			<xs:element name="policy-no" type="xs:string"/>
+			<xs:element name="tenure" type="xs:int"/>
+			<xs:element name="insurred-amount" type="xs:float"/>
+			<xs:element name="member-info" type="lpt:memberInfoType"/>
+			<xs:element name="plan" type="lpt:planType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="memberInfoType">
+		<xs:sequence>
+			<xs:element name="fullname" type="xs:string"/>
+			<xs:element name="age" type="xs:int"/>
+			<xs:element name="gender" type="xs:string"/>
+		</xs:sequence>		
+	</xs:complexType>
+	<xs:complexType name="planType">
+		<xs:sequence>
+			<xs:element name="plan-no" type="xs:int"/>
+			<xs:element name="plan-name" type="xs:string"/>
+			<xs:element name="plan-type" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+How to use the xjc and schemagen tools?
+We need to setup the environment/tools for using them
+#1. download jaxb ri distribution from
+https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-ri/2.3.1/jaxb-ri-2.3.1.zip
+
+#2. extract the zip file downloaded above into a directory
+#3. then copy the extracted directory jaxb-ri into c:\ drive directly
+
+#4. open the command-prompt and set below environment variables before executing the tools
+set JAXB_HOME=c:\jaxb-ri
+set PATH=%PATH%;%JAXB_HOME%\bin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

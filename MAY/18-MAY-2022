@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>ic0383</item-code>
+			<quantity>10</quantity>
+		</item>
+		<item>
+			<item-code>ic023</item-code>
+			<quantity>13</quantity>
+		</item>
+	</order-items>
+	<shipping-address type="permanent">
+		<address-line1>George St, 2nd lane</address-line1>
+		<address-line2>202</address-line2>
+		<city>Delaware</city>
+		<state>Ohio</state>
+		<zip>9383</zip>
+		<country>USA</country>
+	</shipping-address>
+</purchase-order>
+
+Function visitNode(Node n)
+BEGIN
+	IF n.nodeType == DOCUMENT_NODE
+	THEN
+		Node rootNode = n.getFirstChild();
+		visitNode(rootNode);
+	ELSE IF n.nodeType == ELEMENT_NODE
+	THEN
+		print n.nodeName
+		childNodes = n.getChildNodes();
+		FOREACH child in childNodes
+		LOOP
+			visitNode(child)
+		END
+	ELSE IF n.nodeType == TEXT_NODE
+	THEN
+		print n.nodeValue
+	ENDIF
+END
+
+
+TraverseXmlTest.java
+---------------------
+
+class TraverseXmlTest {
+	public static void main(String[] args) {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		Document doc = builder.parse(new File("d:\\po.xml"));
+		visitNode(doc);		
+	}
+	
+	public static void visitNode(Node n) {
+		if(n.getNodeType() == Node.DOCUMENT_NODE) {
+			Node rootNode = n.getFirstChild();
+			visitNode(rootNode);
+		}else if(n.getNodeType() == Node.ELEMENT_NODE) {
+			sop("<"+n.getNodeName()+">");
+			NodeList children = n.getChildNodes();
+			for(int i=0;i<children.getLength();i++) {
+				Node child = children.item(i);
+				visitNode(child);
+			}
+			sopln("</"+n.getNodeName()+">");
+		}else if(n.getNodeType() == Node.TEXT_NODE) {
+			sop(n.getNodeValue());
+		}
+	}
+}
+--------------------------------------------------------------------------------------------
+what is the difference between sax and dom?
+when to use sax methodology and when to use dom methodology?
+	
+	
+#1. 
+sax stands for simple access for xml api
+dom stands for document object model
+
+#2.
+sax is an sequential access methodology, that permits to read the contents of an xml from top to the bottom
+dom support reading both sequentially and randomly the xml
+
+#3 
+sax uses event-based processing model in reading the contents of an xml
+dom uses hierarchial model in processing the contents of an xml
+
+#4.
+sax consumes very less amount of memory in reading the contents of an xml
+dom is an memory intensive parser which consumes lot of memory and is not recommended to use for processing larger xml, as it quickly goes outof memory
+
+#5. 
+sax is faster in reading the contents of xml
+dom is relatively slow when compared with sax in reading the xml
+
+#6. 
+sax is an read-only api, we cannot modify or create new xml documents using sax
+dom is an api that supports reading, modifying or creating new xml documents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

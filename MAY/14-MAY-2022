@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>ic0383</item-code>
+			<quantity>10</quantity>
+		</item>
+		<item>
+			<item-code>ic023</item-code>
+			<quantity>13</quantity>
+		</item>
+	</order-items>
+	<shipping-address type="permanent">
+		<address-line1>George St, 2nd lane</address-line1>
+		<address-line2>202</address-line2>
+		<city>Delaware</city>
+		<state>Ohio</state>
+		<zip>9383</zip>
+		<country>USA</country>
+	</shipping-address>
+</purchase-order>
+
+class GetTotalQuantityHandler extends DefaultHandler {
+	int totalQuantity;
+	boolean flag;
+	
+	public void startDocument() {
+		flag = false;
+		totalQuantity = 0;
+	}
+	
+	public void startElement(String URI, String localName, String qName, Attributes attributes) {
+		if(qName.equals("quantity")) {
+			flag = true;
+		}
+	}
+	public void characters(char[] doc, int startIndex, int offSet) {
+		String data = null;
+		
+		if(flag == true) {
+			data = new String(doc, startIndex, offSet);
+			totalQuantity += Integer.parseInt(data);
+		}
+		flag = false;
+	}
+}
+--------------------------------------------------------------------------------------------
+DOM
+DOM stands for document object model, it is an universal access methodology that is used for processing the contents of an xml document. DOM supports random access in reading the contents of an xml. DOM uses hierarchial processing model in reading the contents of an xml
+
+Whenever we give xml as an input to the DOM engine, it reads the entire contents of an xml and creates an tree based representation out of the xml by placing each and everything of the xml as nodes in the tree.
+	
+These nodes are related with another nodes based on the relationship we have between the elements.
+A node can acts as an child of another node or can act as an parent of another based on relationship of the elements.
+	
+There are different types of nodes are there based on the content of the xml the node is pointing to .
+1. NODE
+2. DOCUMENT_NODE  = Representing start of the xml document
+3. ELEMENT NODE = representing start tag and ending tag of an element
+4. TEXT NODE = representing the data
+5. ATTRIBUTE NODE = representing attributes of an element
+
+DOM has provided traversal methods that help us in traversing between the nodes of the tree.
+1. getChildNodes() = return all of the child nodes of a given node
+2. getFirstChild() = returns the immediate child node of a given node
+3. getParent() = parent node
+4. getNextSibling() = returns the next element of the same parent from the current node
+5. getPreviousSibiling() = returns the before/previous element of the same parent for the current node
+so using the above methods we can move across the elements of the tree based on relationship between the nodes
+
+In addition to the above methods dom has provided methods for randomly accessing elements of the tree using
+getElementsByTagName("quantity") = list of all the elements in the xml whose tag name is "quantity"
+getElementById("id") = uniquely identifies the element by attribute id value and returns that node to us
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>ic0383</item-code>
+			<quantity>10</quantity>
+		</item>
+		<item>
+			<item-code>ic023</item-code>
+			<quantity>13</quantity>
+		</item>
+	</order-items>
+	<shipping-address id="sa1" type="permanent">
+		<address-line1>George St, 2nd lane</address-line1>
+		<address-line2>202</address-line2>
+		<city>Delaware</city>
+		<state>Ohio</state>
+		<zip>9383</zip>
+		<country>USA</country>
+	</shipping-address>
+</purchase-order>
+
+
+Node node = document.getElementById("sa1");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+How to work with DOM methodology using jaxp api?
+	
+DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+DocumentBuilder builder = factory.newDocumentBuilder();
+Document doc = builder.parse(new File("d:\\po.xml"));
+
+<?xml version="1.0" encoding="UTF-8"?>
+<purchase-order>
+<order-items>
+<item>
+<item-code>ic0383</item-code>
+<quantity>10</quantity>
+</item>
+<item>
+<item-code>ic023</item-code>
+<quantity>13</quantity>
+</item>
+</order-items>
+<shipping-address type="permanent">
+<address-line1>George St, 2nd lane</address-line1>
+<address-line2>202</address-line2>
+<city>Delaware</city>
+<state>Ohio</state>
+<zip>9383</zip>
+<country>USA</country>
+</shipping-address>
+</purchase-order>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

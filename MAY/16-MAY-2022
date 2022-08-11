@@ -1,0 +1,109 @@
+DOM
+DOM stands for document object model. DOM is an universal access methodology used for parsing the contents of an xml document irrespective of the programming languages. DOM is governed and owned by w3c organization
+
+DOM supports reading the xml document sequentially and even randomly as well. DOM uses hierarchial model in processing the contents of an xml document.
+	
+How does DOM works?
+The DOM engine takes the xml document as an input, reads the entire xml at one shot and creates an in-memory tree representation of the xml. Everything in xml is represented as Nodes and nodes are created within the tree based on the relationship between the elements of the XML
+
+There are several types of nodes are there based on the type of the content the Node is representing out of the xml
+1. DOCUMENT NODE
+2. ELEMENT NODE
+3. TEXT NODE
+4. ATTRIBUTE NODE
+
+as the entire xml is represented in the Tree,we need to read the contents of the xml from the Tree representation.
+There are 2 ways we can read the data from the Tree using DOM methodology
+1. Traversal 
+2. query methods / random access
+
+
+#1. Traversal
+based on the relationship between the nodes we can access the contents of the xml from the Tree. There are methods to access the nodes of the tree using relationship
+1. firstChild
+2. childNodes
+3. nextSibling
+4. previousSibling
+5. parent
+
+#2. random access methods
+1. getElementById(id) = one node (because id is unqiue)
+2. getElementsByTagName(nodename) (multiple nodes, as they can be multiple elements with same name)
+--------------------------------------------------------------------------------------------
+How to work with DOM methodology using jaxp api?
+
+Document = represents an in-memory model of an xml document within the JVM memory. A document object represents the Root of the Xml Tree
+
+Document is an abstract class and we need an implementation class for instantiating the object of the Document
+To create the object of the Document class by reading the contents of an xml and dumps into the Document object we need an Builder class, because factories creates objects of other classes as empty only
+
+DocumentBuilder = is used for reading the contents of the xml and creates the object of Document
+DocumentBuilder
+- parse(new File("")); -> Document
+
+DocumentBuilder is an an abstract class and we need implementation for it, the DocumentBuilderFactory acts as an factory class for creating the object of DocumentBuilder
+
+Create the object of DocumentBuilderFactory by calling static factory method "newInstance" using the object of factory create builder and parse the xml to create document object
+
+DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+DocumentBuilder builder = factory.newDocumentBuilder();
+Document doc = builder.parse(new File("d:\\po.xml"));
+
+Node node = doc.getFirstChild();
+sop(node.getNodeName()); // book
+
+Node isbnNode = doc.getFirstChild().getFirstChild(); // isbn
+sop(isbnNode.getNodeName());
+
+Node isbnValueNode = doc.getFirstChild().getFirstChild().getFirstChild();
+sop(isbnValueNode.getNodeValue());
+
+Node title = doc.getFirstChild().getFirstChild().getNextSibling();
+
+NodeList childNodes = doc.getFirstChild().getChildNodes();
+sop(childNodes.size()); // 3
+for(int i=0; i < childNodes.size(); i++) {
+	Node node = childNodes.item(i);
+}
+--------------------------------------------------------------------------------------------
+all the authors who has written the book
+
+NodeList nodeList = doc.getElementsByTagName("author-name");
+for(int i=0;i<nodeList.size();i++) {
+	Node n = nodeList.item(i);
+	Node authorName = n.getFirstChild();
+	sop(authorName.getNodeValue());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

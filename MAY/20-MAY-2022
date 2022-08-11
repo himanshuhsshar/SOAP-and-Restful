@@ -1,0 +1,6 @@
+jaxb
+-----
+jaxb stands for java architecture for xml binding, jaxb allows us to read the data from an xml document interms of objects, there are few implements are available for jaxb api
+1. jaxb ri
+2. jaxme
+

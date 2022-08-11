@@ -1,0 +1,82 @@
+jaxb stands for java architecture for xml binding, it allows us to read the data from an xml document into an object
+it has been designed based on "xml binding technology".
+
+po.xsd
+--------
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.amazon.in/sales/types" xmlns:ast="http://www.amazon.in/sales/types">
+	<xs:element name="policy" type="ast:policyType"/>
+	
+	<xs:complexType name="policyType">
+		<xs:sequence>
+			<xs:element name="policy-no" type="xs:int"/>
+			<xs:element name="member-info" type="ast:memberInfoType"/>
+			<xs:element name="plan-details" type="ast:planDetailsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="memberInfoType">
+		<xs:sequence>
+			<xs:element name="member-name" type="xs:string"/>
+			<xs:element name="age" type="xs:int"/>
+			<xs:element name="gender" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="planDetailsType">
+		<xs:sequence>
+			<xs:element name="plan-no" type="xs:int"/>
+			<xs:element name="plan-name" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
+
+<?xml version="1.0" encoding="utf-8"?>
+<policy>
+	<policy-no/>
+	<member-info>
+		<member-name>james</member-name>
+		<age/>
+		<gender/>		
+	</member-info>
+	<plan-details>
+		<plan-no/>
+		<plan-name/>
+		<description/>
+	</plan-details>
+</policy>
+--------------------------------------------------------------------------------------------
+jaxb = shipped as part jdk distribution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

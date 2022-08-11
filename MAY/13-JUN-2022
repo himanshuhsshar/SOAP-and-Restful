@@ -1,0 +1,74 @@
+#1. What/Which type of webservice are you working on or are you developing?
+Working on 
+WS-I organization
+	|-BP1.0 specification
+		|-jaxprc api
+			|-jaxrpc si implementation (or)
+			|-apache axis
+			|-oracle weblogic server webservice 
+			|-ibm websphere server webservice 
+	|-BP.1.1 specification
+		|-jaxws api
+			|-jaxws ri implementation
+			|-apache axis2
+			|-apache cxf
+			|-oracle weblogic server webservice 
+			|-ibm websphere server webservice 
+			
+#2. which endpoint based web service are you developing?
+There are 2 endpoint based webservices are there
+1. servlet endpoint
+if the incomming request that is send by the consumer is received by an servlet at the provider end, then it is called "Servlet Endpoint" based webservice
+2. ejb endpoint 
+if the incoming request is received by an ejb at the provider side, then it is called ejb endpoint based web service
+
+Many of the times we build web services based on servlet-endpoint only, rather than using ejb endpoint
+
+Why not ejb, why would we prefer servlet-endpoint based web services?
+1. an ejb with webservice becomes very complex technology to develop
+2. even we develop webservices using ejb endpoint, there is no added advantage since non of the cross-platform features that comes out of ejb cannot be used in building web services, because it makes webservices non-interoperable
+
+#3. Which approach are you using in developing webservice?
+	
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
