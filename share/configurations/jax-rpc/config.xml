@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Copyright 2004 Sun Microsystems, Inc. All rights reserved. SUN
+		PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+	-->
+<configuration xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+	<service name="BookInfoService" 
+		targetNamespace="http://bookinfoservice.org/wsdl"
+		typeNamespace="http://bookinfoservice.org/types" 
+		packageName="com.bookstore.services.binding">
+		<interface name="com.bookstore.services.BookInfoService"
+			servantName="com.bookstore.services.BookInfoServiceImpl" />
+	</service>
+</configuration>

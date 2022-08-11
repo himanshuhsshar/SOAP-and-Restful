@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+ SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+
+<webServices
+    xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/dd"
+    version="1.0"
+    targetNamespaceBase="http://licindia.org/service/wsdl"
+    typeNamespaceBase="http://licindia.org/service/types"
+    urlPatternBase="/enroll">
+
+    <endpoint
+        name="MemberEnrollmentService"
+        displayName="Book Service"
+        description="A simple web service" 
+        wsdl="/WEB-INF/licindiaservices.wsdl"
+        interface="com.stub.bindings.Member"  
+        implementation="com.stub.bindings.MemberImpl" 
+	     model="/WEB-INF/model-rpc-enc.xml.gz">
+	     
+	     <handlerChains>
+            <chain runAt="server">
+                <handler className="com.stub.bindings.MemberHandler"/>
+            </chain>
+        </handlerChains>
+	</endpoint>
+ 
+    <endpointMapping
+        endpointName="MemberEnrollmentService"
+        urlPattern="/enroll"/>
+
+</webServices>
