@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="RailYatraService" targetNamespace="http://www.railyatra.com/enquiry/service"
+	xmlns:tns="http://www.railyatra.com/enquiry/service" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<types />
+	<message name="TrainEnquiry_pnrStatus">
+		<part name="String_1" type="xsd:string" />
+	</message>
+	<message name="TrainEnquiry_pnrStatusResponse">
+		<part name="result" type="xsd:string" />
+	</message>
+	<message name="TrainEnquiry_trainStatus">
+		<part name="String_1" type="xsd:string" />
+	</message>
+	<message name="TrainEnquiry_trainStatusResponse">
+		<part name="result" type="xsd:string" />
+	</message>
+	<portType name="TrainEnquiry">
+		<operation name="pnrStatus" parameterOrder="String_1">
+			<input message="tns:TrainEnquiry_pnrStatus" />
+			<output message="tns:TrainEnquiry_pnrStatusResponse" />
+		</operation>
+		<operation name="trainStatus" parameterOrder="String_1">
+			<input message="tns:TrainEnquiry_trainStatus" />
+			<output message="tns:TrainEnquiry_trainStatusResponse" />
+		</operation>
+	</portType>
+	<binding name="TrainEnquiryBinding" type="tns:TrainEnquiry">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="rpc" />
+		<operation name="pnrStatus">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					use="encoded" namespace="http://www.railyatra.com/enquiry/service" />
+			</input>
+			<output>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					use="encoded" namespace="http://www.railyatra.com/enquiry/service" />
+			</output>
+		</operation>
+		<operation name="trainStatus">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					use="encoded" namespace="http://www.railyatra.com/enquiry/service" />
+			</input>
+			<output>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					use="encoded" namespace="http://www.railyatra.com/enquiry/service" />
+			</output>
+		</operation>
+	</binding>
+	<service name="RailYatraService">
+		<port name="TrainEnquiryPort" binding="tns:TrainEnquiryBinding">
+			<soap:address location="REPLACE_WITH_ACTUAL_URL" />
+		</port>
+	</service>
+</definitions>
