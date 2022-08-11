@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:element name="tour-package" type="tourPackageType"/>
+	<xs:complexType name="tourPackageType">
+		<xs:sequence>
+			<xs:element name="package-no" type="xs:int"/>
+			<xs:element name="package-name" type="xs:string"/>
+			<xs:element name="days" type="xs:int"/>
+			<xs:element name="nights" type="xs:int"/>
+			<xs:element name="package-amount" type="xs:float"/>			
+			<xs:element name="places" type="placesType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="placesType">
+		<xs:choice>
+			<xs:element name="domestic-place" type="domesticPlaceType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="international-place" type="internationalPlaceType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="domesticPlaceType">
+		<xs:sequence>
+			<xs:element name="place-name" type="xs:string"/>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="travel-mode" type="xs:string"/>
+			<xs:element name="hours" type="xs:int"/>
+			<xs:element name="description" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="internationalPlaceType">
+		<xs:complexContent>
+			<xs:extension base="domesticPlaceType">
+				<xs:sequence>
+					<xs:element name="passport-required" type="xs:boolean"/>
+					<xs:element name="visa-required" type="xs:boolean"/>
+					<xs:element name="age-limit" type="xs:int"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+</xs:schema>

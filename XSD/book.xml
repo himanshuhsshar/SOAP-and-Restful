@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/work/master/webservices/20223003/XSD/book.xsd">
+	<isbn>isbn0383</isbn>
+	<title>Complete Reference Java</title>
+	<author>
+		<author-name>Alexander</author-name>
+		<dob>1980-02-23</dob>
+		<gender>Male</gender>
+		<no-of-books>10</no-of-books>
+	</author>
+	<publisher>
+		<publisher-name>Wrox</publisher-name>
+		<est-date>1978-07-12</est-date>
+		<no-of-books>300</no-of-books>
+	</publisher>
+</book>

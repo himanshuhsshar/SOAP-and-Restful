@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+
+	<bean id="ticketManagerPort"
+		class="com.goair.travel.service.TicketManagerSOAPPortImpl">
+		<property name="airTicketDao" ref="airTicketDao" />
+		<property name="passengerDao" ref="passengerDao" />
+	</bean>
+
+	<bean id="pcbHandler"
+		class="com.goair.security.handler.PCBHandler" />
+
+	<jaxws:endpoint id="ticketManager"
+		implementor="#ticketManagerPort" address="/ticketManager">
+		<jaxws:inInterceptors>
+			<bean
+				class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+				<property name="properties">
+					<map>
+						<entry key="action" value="UsernameToken" />
+						<entry key="passwordType" value="passwordText" />
+						<entry key="passwordCallbackRef" value-ref="pcbHandler" />
+					</map>
+				</property>
+			</bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+
+</beans>

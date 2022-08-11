@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<passport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/work/master/webservices/20223003/XSD/passport.xsd">
+	<passport-no>p03893</passport-no>
+	<fullname>gerold</fullname>
+	<dob>1989-01-12</dob>
+	<gender>male</gender>
+	<expiry-date>2025-01-23</expiry-date>
+	<issued-date>2020-01-22</issued-date>
+	<issued-authority>Hyderabad Passport Office</issued-authority>
+	<address>
+		<address-line1>12 avenue</address-line1>
+		<address-line2>parklane street</address-line2>
+		<city>hyderabad</city>
+		<state>ts</state>
+		<zip>89383</zip>
+		<country>India</country>
+	</address>
+</passport>

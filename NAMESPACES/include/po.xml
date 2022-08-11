@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<et:purchase-order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ebay.in/sales/types file:///D:/work/master/webservices/20223003/NAMESPACES/include/po2.xsd" xmlns:et="http://ebay.in/sales/types">
+	<order-items>
+		<item>
+			<item-code>ic038</item-code>
+			<quantity>23</quantity>
+		</item>
+	</order-items>
+	<et:shipping-address>
+		<address-line1>1321, summer court road</address-line1>
+		<address-line2>near police station</address-line2>
+		<city>hyderabad</city>
+		<state>ts</state>
+		<zip>9383</zip>
+		<country>India</country>
+	</et:shipping-address>
+</et:purchase-order>

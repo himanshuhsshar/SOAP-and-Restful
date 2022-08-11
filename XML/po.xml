@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE purchase-order SYSTEM "D:/work/master/webservices/20223003/XML/po.dtd">
+<purchase-order>
+	<order-items>
+		<item>
+			<item-code>ic0383</item-code>
+			<quantity>10</quantity>
+		</item>
+	</order-items>
+	<shipping-address type="permanent">
+		<address-line1>George St, 2nd lane</address-line1>
+		<address-line2>202</address-line2>
+		<city>Delaware</city>
+		<state>Ohio</state>
+		<zip>9383</zip>
+		<country>USA</country>
+	</shipping-address>
+</purchase-order>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions
+	xmlns:gts="http://www.goair.com/travel/service"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TicketManager"
+	targetNamespace="http://www.goair.com/travel/service"
+	xmlns:gtt="http://www.goair.com/travel/types">
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://www.goair.com/travel/types">
+			<xsd:element name="travelPlan">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="passengers" type="gtt:passenger"
+							minOccurs="1" maxOccurs="6" />
+						<xsd:element name="journey-info">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="flight-no" type="xsd:string" />
+									<xsd:element name="source" type="xsd:string" />
+									<xsd:element name="destination" type="xsd:string" />
+									<xsd:element name="journey-dt" type="xsd:date" />
+									<xsd:element name="mobile-no" type="xsd:string" />
+									<xsd:element name="email-address" type="xsd:string" />
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="airTicket">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="pnr" type="xsd:string" />
+						<xsd:element name="airlines" type="xsd:string" />
+						<xsd:element name="lastname" type="xsd:string" />
+						<xsd:element name="source" type="xsd:string" />
+						<xsd:element name="destination" type="xsd:string" />
+						<xsd:element name="boarding-time" type="xsd:dateTime" />
+						<xsd:element name="amount" type="xsd:double" />
+						<xsd:element name="passengers" type="gtt:passenger"
+							minOccurs="1" maxOccurs="6" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="passenger">
+				<xsd:sequence>
+					<xsd:element name="fullname" type="xsd:string" />
+					<xsd:element name="age" type="xsd:int" />
+					<xsd:element name="gender" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="bookTicket">
+		<wsdl:part name="travelPlan" element="gtt:travelPlan" />
+	</wsdl:message>
+	<wsdl:message name="bookTicketResponse">
+		<wsdl:part name="ticket" element="gtt:airTicket" />
+	</wsdl:message>
+	<wsdl:portType name="TicketManager">
+		<wsdl:operation name="bookTicket">
+			<wsdl:input message="gts:bookTicket" />
+			<wsdl:output message="gts:bookTicketResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="TicketManagerSOAPBinding"
+		type="gts:TicketManager">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="bookTicket">
+			<soap:operation
+				soapAction="http://www.goair.com/travel/service/bookTicket" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="TicketManagerService">
+		<wsdl:port binding="gts:TicketManagerSOAPBinding"
+			name="TicketManagerSOAPPort">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
