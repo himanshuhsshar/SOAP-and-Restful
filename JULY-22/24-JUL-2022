@@ -1,6 +1,7 @@
 apache cxf
 
-The apache cxf is the third-generation web service engine provided by the apache team. apache cxf is fully complaint with jaxws api. There are lot of features are supported by apache cxf
+The apache cxf is the third-generation web service engine provided by the apache team. apache cxf is fully complaint with jaxws api. There are lot of
+features are supported by apache cxf
 1. supports/complaints with jaxws api (JAXWS 2.0)
 2. apache cxf supports ws-* specification standards in build the soap services like
 		2.1 WS-Security
